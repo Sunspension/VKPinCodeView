@@ -11,7 +11,7 @@ import UIKit
 typealias PinCodeValidator = (_ code: String) -> Bool
 
 @IBDesignable
-class VKPinCodeView: UIView {
+public class VKPinCodeView: UIView {
     
     private lazy var _stack = UIStackView(frame: bounds)
     
@@ -29,78 +29,78 @@ class VKPinCodeView: UIView {
         return index
     }
     
-    @IBInspectable var length: Int = 4 {
+    @IBInspectable public var length: Int = 4 {
         
         willSet { createLabels() }
     }
     
-    @IBInspectable var spacing: CGFloat = 16 {
+    @IBInspectable public var spacing: CGFloat = 16 {
         
         willSet { if newValue != spacing { _stack.spacing = newValue } }
     }
     
-    var font = UIFont.systemFont(ofSize: 22) {
+    public var font = UIFont.systemFont(ofSize: 22) {
         
         didSet { updateFont() }
     }
     
-    var keyBoardType = UIKeyboardType.numberPad {
+    public var keyBoardType = UIKeyboardType.numberPad {
         
         willSet { _textField.keyboardType = newValue }
     }
     
-    var isError = false {
+    public var isError = false {
         
         didSet { if oldValue != isError { updateErrorState() } }
     }
     
-    @IBInspectable var cornerRadius: CGFloat = 5 {
+    @IBInspectable public var cornerRadius: CGFloat = 5 {
         
         didSet { updateCornerRadius() }
     }
     
-    @IBInspectable var borderWidth: CGFloat = 1 {
+    @IBInspectable public var borderWidth: CGFloat = 1 {
         
         didSet { updateBorderWidth() }
     }
     
-    var inactiveBorderColor = UIColor.red {
+    public var inactiveBorderColor = UIColor.red {
         
         didSet { updateInactiveBorderColor() }
     }
     
-    var activeBorderColor = UIColor.lightGray {
+    public var activeBorderColor = UIColor.lightGray {
         
         didSet { updateActiveBorderColor() }
     }
     
-    var inactiveBackgroundColor = UIColor.white {
+    public var inactiveBackgroundColor = UIColor.white {
         
         didSet { updateInactiveBackgroundColor() }
     }
     
-    var activeBackgroundColor = UIColor.white {
+    public var activeBackgroundColor = UIColor.white {
         
         didSet { updateActiveBackgroundColor() }
     }
     
-    var animateActiveBorder = true
+    public var animateActiveBorder = true
     
-    var shakeOnError = true
+    public var shakeOnError = true
     
-    var errorBorderColor = UIColor.red
+    public var errorBorderColor = UIColor.red
     
-    var errorTextColor = UIColor.red
+    public var errorTextColor = UIColor.red
     
-    var textColor = UIColor.black
+    public var textColor = UIColor.black
     
-    var onComplete: ((_ code: String) -> Void)?
+    public var onComplete: ((_ code: String) -> Void)?
     
-    var onCodeDidChange: ((_ code: String) -> Void)?
+    public var onCodeDidChange: ((_ code: String) -> Void)?
     
-    var onBeginEditing: (() -> Void)?
+    public var onBeginEditing: (() -> Void)?
     
-    var validator: PinCodeValidator?
+    public var validator: PinCodeValidator?
     
     
     // MARK: - Initializers
