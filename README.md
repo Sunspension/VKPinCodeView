@@ -10,4 +10,4 @@
 
 ## License
 
-PinCodeView is released under the MIT license. [See LICENSE](https://github.com/Sunspension/PinCodeView/blob/master/LICENSE) for details.
+VKPinCodeView is released under the MIT license. [See LICENSE](https://github.com/Sunspension/VKPinCodeView/blob/master/LICENSE) for details.
