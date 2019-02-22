@@ -64,7 +64,7 @@ public class VKPinCodeView: UIView {
         didSet { updateBorderWidth() }
     }
     
-    public var inactiveBorderColor = UIColor.red {
+    public var inactiveBorderColor = UIColor(white: 0.95, alpha: 1) {
         
         didSet { updateInactiveBorderColor() }
     }
@@ -200,6 +200,7 @@ public class VKPinCodeView: UIView {
         if _code.count == length {
             
             onComplete?(_code)
+            turnOffActiveLabel()
             _textField.resignFirstResponder()
         }
     }
