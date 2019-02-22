@@ -134,15 +134,14 @@ public class VKPinCodeView: UIView {
     
     @discardableResult override public func becomeFirstResponder() -> Bool {
         
-        _textField.becomeFirstResponder()
+        onBecomeActive()
         return super.becomeFirstResponder()
     }
     
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         isError = false
-        _textField.becomeFirstResponder()
-        highlightActiveLabel(_activeIndex)
+        onBecomeActive()
     }
     
     // MARK: - Private methods
@@ -360,6 +359,12 @@ public class VKPinCodeView: UIView {
         animation.duration = 0.5
         animation.values = [-15.0, 15.0, -15.0, 15.0, -12.0, 12.0, -10.0, 10.0, 0.0]
         layer.add(animation, forKey: "shake")
+    }
+    
+    private func onBecomeActive() {
+        
+        _textField.becomeFirstResponder()
+        highlightActiveLabel(_activeIndex)
     }
 }
 
