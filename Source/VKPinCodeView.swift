@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias PinCodeValidator = (_ code: String) -> Bool
+public typealias PinCodeValidator = (_ code: String) -> Bool
 
 @IBDesignable
 public class VKPinCodeView: UIView {
@@ -104,7 +104,7 @@ public class VKPinCodeView: UIView {
     
     
     // MARK: - Initializers
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         
         super.init(frame: frame)
         setup()
@@ -118,7 +118,7 @@ public class VKPinCodeView: UIView {
     
     // MARK: - Life cycle
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         
         super.awakeFromNib()
         setup()
@@ -127,18 +127,18 @@ public class VKPinCodeView: UIView {
     
     // MARK: - Overrides
     
-    override func prepareForInterfaceBuilder() {
+    override public func prepareForInterfaceBuilder() {
         
         setup()
     }
     
-    @discardableResult override func becomeFirstResponder() -> Bool {
+    @discardableResult override public func becomeFirstResponder() -> Bool {
         
         _textField.becomeFirstResponder()
         return super.becomeFirstResponder()
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         isError = false
         _textField.becomeFirstResponder()
@@ -365,13 +365,13 @@ public class VKPinCodeView: UIView {
 
 extension VKPinCodeView: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    private func textFieldDidBeginEditing(_ textField: UITextField) {
         
         isError = false
         onBeginEditing?()
     }
     
-    func textField(_ textField: UITextField,
+    private func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
         
@@ -379,7 +379,7 @@ extension VKPinCodeView: UITextFieldDelegate {
         return (validator?(string) ?? true) && _code.count < length
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    private func textFieldDidEndEditing(_ textField: UITextField) {
         
         if isError { return }
         turnOffActiveLabel()
