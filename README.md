@@ -9,6 +9,9 @@
 - [x] Custom entry validation 
 
 
+## Preview
+![](pincode.gif)
+
 ## Installation
 
 ### CocoaPods
