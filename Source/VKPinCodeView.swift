@@ -8,14 +8,15 @@
 
 import UIKit
 
-public typealias PinCodeValidator = (_ code: String) -> Bool
+public typealias VKPinCodeValidator = (_ code: String) -> Bool
 
-@IBDesignable
 public class VKPinCodeView: UIView {
     
     private lazy var _stack = UIStackView(frame: bounds)
     
     private lazy var _textField = UITextField(frame: bounds)
+    
+    private var _style: VKEntryViewStyle?
     
     private var _code = "" {
         
@@ -24,24 +25,17 @@ public class VKPinCodeView: UIView {
     
     private var _activeIndex: Int {
         
-        var index = _code.count
-        if index == length { index -= 1 }
-        return index
+        return _code.count == 0 ? 0 : _code.count - 1
     }
     
-    @IBInspectable public var length: Int = 4 {
+    public var length: Int = 4 {
         
         willSet { createLabels() }
     }
     
-    @IBInspectable public var spacing: CGFloat = 16 {
+    public var spacing: CGFloat = 16 {
         
         willSet { if newValue != spacing { _stack.spacing = newValue } }
-    }
-    
-    public var font = UIFont.systemFont(ofSize: 22) {
-        
-        didSet { updateFont() }
     }
     
     public var keyBoardType = UIKeyboardType.numberPad {
@@ -54,45 +48,9 @@ public class VKPinCodeView: UIView {
         didSet { if oldValue != isError { updateErrorState() } }
     }
     
-    @IBInspectable public var cornerRadius: CGFloat = 5 {
-        
-        didSet { updateCornerRadius() }
-    }
-    
-    @IBInspectable public var borderWidth: CGFloat = 1 {
-        
-        didSet { updateBorderWidth() }
-    }
-    
-    public var inactiveBorderColor = UIColor(white: 0.95, alpha: 1) {
-        
-        didSet { updateInactiveBorderColor() }
-    }
-    
-    public var activeBorderColor = UIColor.lightGray {
-        
-        didSet { updateActiveBorderColor() }
-    }
-    
-    public var inactiveBackgroundColor = UIColor.white {
-        
-        didSet { updateInactiveBackgroundColor() }
-    }
-    
-    public var activeBackgroundColor = UIColor.white {
-        
-        didSet { updateActiveBackgroundColor() }
-    }
-    
-    public var animateActiveBorder = true
+    public var animateSelectedEntry = true
     
     public var shakeOnError = true
-    
-    public var errorBorderColor = UIColor.red
-    
-    public var errorTextColor = UIColor.red
-    
-    public var textColor = UIColor.black
     
     public var onComplete: ((_ code: String) -> Void)?
     
@@ -100,13 +58,21 @@ public class VKPinCodeView: UIView {
     
     public var onBeginEditing: (() -> Void)?
     
-    public var validator: PinCodeValidator?
+    public var validator: VKPinCodeValidator?
     
     
     // MARK: - Initializers
+    
     override public init(frame: CGRect) {
         
         super.init(frame: frame)
+        setup()
+    }
+    
+    init(style: VKEntryViewStyle) {
+        
+        super.init(frame: CGRect.zero)
+        _style = style
         setup()
     }
     
@@ -140,11 +106,20 @@ public class VKPinCodeView: UIView {
     
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        isError = false
         onBecomeActive()
     }
     
+    
+    // MARK: - Public methods
+    
+    public func setStyle(_ style: VKEntryViewStyle) {
+        
+        _style = style
+        createLabels()
+    }
+    
     // MARK: - Private methods
+    
     private func setup() {
         
         setupTextField()
@@ -170,10 +145,7 @@ public class VKPinCodeView: UIView {
         _textField.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         _textField.addTarget(self, action: #selector(self.onTextChanged(_:)), for: .editingChanged)
         
-        if #available(iOS 12.0, *) {
-            
-            _textField.textContentType = .oneTimeCode
-        }
+        if #available(iOS 12.0, *) { _textField.textContentType = .oneTimeCode }
         
         addSubview(_textField)
     }
@@ -199,7 +171,7 @@ public class VKPinCodeView: UIView {
         if _code.count == length {
             
             onComplete?(_code)
-            turnOffActiveLabel()
+            turnOffSelectedLabel()
             _textField.resignFirstResponder()
         }
     }
@@ -227,129 +199,33 @@ public class VKPinCodeView: UIView {
         
         for i in 0 ..< _stack.arrangedSubviews.count {
             
-            let view = _stack.arrangedSubviews[i]
-            
-            if i == activeIndex {
-                
-                view.layer.borderColor = activeBorderColor.cgColor
-                view.layer.backgroundColor = activeBackgroundColor.cgColor
-                if animateActiveBorder { animateViewBorder(view) }
-            }
-            else {
-                
-                view.layer.borderColor = inactiveBorderColor.cgColor
-                view.layer.backgroundColor = inactiveBackgroundColor.cgColor
-                if animateActiveBorder { view.layer.removeAllAnimations() }
-            }
+            let label = _stack.arrangedSubviews[i] as! VKLabel
+            label.isSelected = i == activeIndex
         }
     }
     
-    private func turnOffActiveLabel() {
+    private func turnOffSelectedLabel() {
         
-        let view = _stack.arrangedSubviews[_activeIndex]
-        if animateActiveBorder { view.layer.removeAllAnimations() }
-        view.layer.borderColor = inactiveBorderColor.cgColor
-        view.layer.backgroundColor = inactiveBackgroundColor.cgColor
+        let label = _stack.arrangedSubviews[_activeIndex] as! VKLabel
+        label.isSelected = false
     }
     
     private func createLabels() {
         
+        let style = _style ?? VKEntryViewStyle.border
         _stack.arrangedSubviews.forEach { $0.removeFromSuperview() }
-        
-        for _ in 1 ... length {
-            
-            let label = UILabel(frame: CGRect.zero)
-            label.font = font
-            label.textAlignment = .center
-            label.layer.borderColor = inactiveBorderColor.cgColor
-            label.layer.borderWidth = borderWidth
-            label.layer.cornerRadius = cornerRadius
-            _stack.addArrangedSubview(label)
-        }
-    }
-    
-    private func updateFont() {
-        
-        _stack.arrangedSubviews.forEach { ($0 as! UILabel).font = font }
-    }
-    
-    private func updateCornerRadius() {
-        
-        _stack.arrangedSubviews.forEach { $0.layer.cornerRadius = cornerRadius }
-    }
-    
-    private func updateBorderWidth() {
-        
-        _stack.arrangedSubviews.forEach { $0.layer.borderWidth = borderWidth }
-    }
-    
-    private func updateInactiveBackgroundColor() {
-        
-        for i in 0 ..< _stack.arrangedSubviews.count {
-            
-            if i == _activeIndex { continue }
-            let view = _stack.arrangedSubviews[i]
-            view.layer.backgroundColor = inactiveBackgroundColor.cgColor
-        }
-    }
-    
-    private func updateActiveBackgroundColor() {
-        
-        _stack.arrangedSubviews[_activeIndex]
-            .layer.backgroundColor = activeBackgroundColor.cgColor
-    }
-    
-    private func updateInactiveBorderColor() {
-        
-        for i in 0 ..< _stack.arrangedSubviews.count {
-            
-            if i == _activeIndex { continue }
-            let view = _stack.arrangedSubviews[i]
-            view.layer.borderColor = inactiveBorderColor.cgColor
-        }
-    }
-    
-    private func updateActiveBorderColor() {
-        
-        highlightActiveLabel(_activeIndex)
+        for _ in 1 ... length { _stack.addArrangedSubview(VKLabel(style)) }
     }
     
     private func updateErrorState() {
         
-        if isError && shakeOnError { shakeAnimation() }
-        
-        _stack.arrangedSubviews.forEach {
+        if isError {
             
-            let label = ($0 as! UILabel)
-            if animateActiveBorder { label.layer.removeAllAnimations() }
-            
-            if isError {
-                
-                label.textColor = errorTextColor
-                label.layer.borderColor = errorBorderColor.cgColor
-            }
-            else {
-                
-                label.textColor = textColor
-                label.layer.borderColor = inactiveBorderColor.cgColor
-            }
+            turnOffSelectedLabel()
+            if shakeOnError { shakeAnimation() }
         }
-    }
-    
-    private func animateViewBorder(_ view: UIView) {
         
-        view.layer.removeAllAnimations()
-        
-        let animation = CAKeyframeAnimation(keyPath: #keyPath(CALayer.borderColor))
-        animation.duration = 1.0
-        animation.repeatCount = Float.greatestFiniteMagnitude
-        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        animation.values = [inactiveBorderColor.cgColor,
-                            activeBorderColor.cgColor,
-                            activeBorderColor.cgColor,
-                            inactiveBorderColor.cgColor]
-        
-        view.layer.add(animation, forKey: "borderColorAnimation")
+        _stack.arrangedSubviews.forEach({ ($0 as! VKLabel).isError = isError })
     }
     
     private func shakeAnimation() {
@@ -371,13 +247,13 @@ public class VKPinCodeView: UIView {
 
 extension VKPinCodeView: UITextFieldDelegate {
     
-    private func textFieldDidBeginEditing(_ textField: UITextField) {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         
         isError = false
         onBeginEditing?()
     }
     
-    private func textField(_ textField: UITextField,
+    public func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
         
@@ -385,9 +261,9 @@ extension VKPinCodeView: UITextFieldDelegate {
         return (validator?(string) ?? true) && _code.count < length
     }
     
-    private func textFieldDidEndEditing(_ textField: UITextField) {
+    public func textFieldDidEndEditing(_ textField: UITextField) {
         
         if isError { return }
-        turnOffActiveLabel()
+        turnOffSelectedLabel()
     }
 }
