@@ -5,7 +5,7 @@ before_install:
 before_script:
   - set -o pipefail
 script:
-  - xcodebuild clean -project VKPinCodeViewExample/VKPinCodeViewExample.xcodeproj && xcodebuild build -project VKPinCodeViewExample/VKPinCodeViewExample.xcodeproj -scheme VKPinCodeViewExample -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8' | xcpretty -c
+  - xcodebuild clean -project VKPinCodeViewExample/VKPinCodeViewExample.xcodeproj && xcodebuild build -project VKPinCodeViewExample/VKPinCodeViewExample.xcodeproj -scheme VKPinCodeViewExample -configuration Debug -sdk iphonesimulator | xcpretty -c
 
 branches:
   only:
