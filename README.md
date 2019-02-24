@@ -3,16 +3,18 @@
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Features
+
 - [x] Variable PIN length
 - [x] Two display styles (underline and border)
 - [x] Customizable appearence
 - [x] Error status with / without shake animation
 - [x] Highlight selected entry with / without animation
 - [x] Callbacks (begin editing, change code, complete)
-- [x] Custom entry validation 
+- [x] Custom input validation 
 
 
 ## Preview
+
 ![](pincode.gif)
 
 ## Installation
@@ -32,8 +34,16 @@ pod 'VKPinCodeView'
 ```ogdl
 github "Sunspension/VKPinCodeView"
 ```
+## Contribute
+
+VKPinCodeView is open to contribute, see contribution notes.
+- If you want to contribute, submit a pull request
+- If you found a bug, open an issue.
+- If you need help with a feature or need to disscuss something else please contact me (vladimir.kokhanevich@gmail.com)
+
 
 ## Requirements
+
 - iOS 9.0+ 
 - Xcode 10.1+
 - Swift 4.2+
