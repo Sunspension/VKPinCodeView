@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/Sunspension/VKPinCodeView.svg?branch=master)](https://travis-ci.com/Sunspension/VKPinCodeView)
+[![Build Status](https://travis-ci.org/Sunspension/VKPinCodeView.svg?branch=master)](https://travis-ci.com/Sunspension/VKPinCodeView)
 
 ## Features
 - [x] Variable PIN length
