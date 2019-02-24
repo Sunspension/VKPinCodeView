@@ -59,7 +59,7 @@
 		7754FF552222A6A300BF8FFF /* VKPinCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKPinCodeView.swift; sourceTree = "<group>"; };
 		7754FF562222A6A300BF8FFF /* VKEntryViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKEntryViewStyle.swift; sourceTree = "<group>"; };
 		7754FF572222A6A300BF8FFF /* VKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKLabel.swift; sourceTree = "<group>"; };
-		77FD778E221F69EE00DC6541 /* VKPinCodeViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKPinCodeViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		77FD778E221F69EE00DC6541 /* VKPinCodeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKPinCodeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77FD7791221F69EE00DC6541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77FD7793221F69EE00DC6541 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		77FD7796221F69EE00DC6541 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		77FD778F221F69EE00DC6541 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				77FD778E221F69EE00DC6541 /* VKPinCodeViewExample.app */,
+				77FD778E221F69EE00DC6541 /* VKPinCodeView.app */,
 				7754FF382222A53700BF8FFF /* VKPinCodeViewLibrary.framework */,
 			);
 			name = Products;
@@ -192,9 +192,9 @@
 			productReference = 7754FF382222A53700BF8FFF /* VKPinCodeViewLibrary.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		77FD778D221F69EE00DC6541 /* VKPinCodeViewExample */ = {
+		77FD778D221F69EE00DC6541 /* VKPinCodeView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 77FD77A0221F69EF00DC6541 /* Build configuration list for PBXNativeTarget "VKPinCodeViewExample" */;
+			buildConfigurationList = 77FD77A0221F69EF00DC6541 /* Build configuration list for PBXNativeTarget "VKPinCodeView" */;
 			buildPhases = (
 				77FD778A221F69EE00DC6541 /* Sources */,
 				77FD778B221F69EE00DC6541 /* Frameworks */,
@@ -206,9 +206,9 @@
 			dependencies = (
 				7754FF3E2222A53700BF8FFF /* PBXTargetDependency */,
 			);
-			name = VKPinCodeViewExample;
+			name = VKPinCodeView;
 			productName = VKPinCodeViewExample;
-			productReference = 77FD778E221F69EE00DC6541 /* VKPinCodeViewExample.app */;
+			productReference = 77FD778E221F69EE00DC6541 /* VKPinCodeView.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -229,7 +229,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 77FD7789221F69EE00DC6541 /* Build configuration list for PBXProject "VKPinCodeViewExample" */;
+			buildConfigurationList = 77FD7789221F69EE00DC6541 /* Build configuration list for PBXProject "VKPinCodeView" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -242,7 +242,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				77FD778D221F69EE00DC6541 /* VKPinCodeViewExample */,
+				77FD778D221F69EE00DC6541 /* VKPinCodeView */,
 				7754FF372222A53700BF8FFF /* VKPinCodeViewLibrary */,
 			);
 		};
@@ -540,7 +540,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		77FD7789221F69EE00DC6541 /* Build configuration list for PBXProject "VKPinCodeViewExample" */ = {
+		77FD7789221F69EE00DC6541 /* Build configuration list for PBXProject "VKPinCodeView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				77FD779E221F69EF00DC6541 /* Debug */,
@@ -549,7 +549,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		77FD77A0221F69EF00DC6541 /* Build configuration list for PBXNativeTarget "VKPinCodeViewExample" */ = {
+		77FD77A0221F69EF00DC6541 /* Build configuration list for PBXNativeTarget "VKPinCodeView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				77FD77A1221F69EF00DC6541 /* Debug */,
