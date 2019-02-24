@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Sunspension/VKPinCodeView.svg?branch=master)](https://travis-ci.com/Sunspension/VKPinCodeView)
+
 ## Features
 - [x] Variable PIN length
 - [x] Two display styles (underline and border)
@@ -21,6 +23,11 @@
 ```ruby
 pod 'VKPinCodeView'
 ```
+
+## Requirements
+- iOS 9.0+ 
+- Xcode 10.1+
+- Swift 4.2+
 
 ## License
 
