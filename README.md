@@ -5,8 +5,7 @@
 - [x] Variable PIN length
 - [x] Two display styles (underline and border)
 - [x] Customizable appearence
-- [x] Error status
-- [x] Error shake animation
+- [x] Error status with / without shake animation
 - [x] Highlight selected entry with / without animation
 - [x] Callbacks (begin editing, change code, complete)
 - [x] Custom entry validation 
