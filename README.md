@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Sunspension/VKPinCodeView.svg?branch=master)](https://travis-ci.com/Sunspension/VKPinCodeView)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/VKPinCodeView.svg)](https://img.shields.io/cocoapods/v/VKPinCodeView.svg)
 
 ## Features
 - [x] Variable PIN length
