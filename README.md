@@ -34,6 +34,12 @@ pod 'VKPinCodeView'
 ```ogdl
 github "Sunspension/VKPinCodeView"
 ```
+
+### Manually
+
+If you still do not use any of dependency managers, just ask yourself why you still do this?
+
+
 ## Contribute
 
 VKPinCodeView is open to contribute, see contribution notes.
