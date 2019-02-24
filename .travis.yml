@@ -1,0 +1,14 @@
+language: swift
+osx_image: xcode10
+before_install:
+  - gem install xcpretty
+before_script:
+  - set -o pipefail
+script:
+  - xcodebuild clean -project VKPinCodeViewExample/VKPinCodeViewExample.xcodeproj && xcodebuild build -project VKPinCodeViewExample/VKPinCodeViewExample.xcodeproj -scheme VKPinCodeViewExample -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone XR' | xcpretty -c
+
+branches:
+  only:
+  - master
+notifications:
+  email: false
