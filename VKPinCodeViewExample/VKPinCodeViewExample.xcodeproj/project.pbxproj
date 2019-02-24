@@ -11,6 +11,9 @@
 		7709F0DB2221D15200CA659F /* VKPinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7709F0D82221D15200CA659F /* VKPinCodeView.swift */; };
 		7709F0DC2221D15200CA659F /* VKEntryViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7709F0D92221D15200CA659F /* VKEntryViewStyle.swift */; };
 		7709F0E02221DC1200CA659F /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7709F0DF2221DC1200CA659F /* ShadowView.swift */; };
+		7754FF3C2222A53700BF8FFF /* VKPinCodeViewLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 7754FF3A2222A53700BF8FFF /* VKPinCodeViewLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7754FF3F2222A53700BF8FFF /* VKPinCodeViewLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7754FF382222A53700BF8FFF /* VKPinCodeViewLibrary.framework */; };
+		7754FF402222A53700BF8FFF /* VKPinCodeViewLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7754FF382222A53700BF8FFF /* VKPinCodeViewLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77FD7792221F69EE00DC6541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FD7791221F69EE00DC6541 /* AppDelegate.swift */; };
 		77FD7794221F69EE00DC6541 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FD7793221F69EE00DC6541 /* ViewController.swift */; };
 		77FD7797221F69EE00DC6541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77FD7795221F69EE00DC6541 /* Main.storyboard */; };
@@ -18,11 +21,38 @@
 		77FD779C221F69EF00DC6541 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77FD779A221F69EF00DC6541 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7754FF3D2222A53700BF8FFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77FD7786221F69EE00DC6541 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7754FF372222A53700BF8FFF;
+			remoteInfo = VKPinCodeViewLibrary;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7754FF442222A53700BF8FFF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7754FF402222A53700BF8FFF /* VKPinCodeViewLibrary.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7709F0D72221D15200CA659F /* VKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VKLabel.swift; path = ../../Source/VKLabel.swift; sourceTree = "<group>"; };
 		7709F0D82221D15200CA659F /* VKPinCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VKPinCodeView.swift; path = ../../Source/VKPinCodeView.swift; sourceTree = "<group>"; };
 		7709F0D92221D15200CA659F /* VKEntryViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VKEntryViewStyle.swift; path = ../../Source/VKEntryViewStyle.swift; sourceTree = "<group>"; };
 		7709F0DF2221DC1200CA659F /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		7754FF382222A53700BF8FFF /* VKPinCodeViewLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VKPinCodeViewLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7754FF3A2222A53700BF8FFF /* VKPinCodeViewLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKPinCodeViewLibrary.h; sourceTree = "<group>"; };
+		7754FF3B2222A53700BF8FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77FD778E221F69EE00DC6541 /* VKPinCodeViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKPinCodeViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77FD7791221F69EE00DC6541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77FD7793221F69EE00DC6541 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,10 +63,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7754FF352222A53700BF8FFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		77FD778B221F69EE00DC6541 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7754FF3F2222A53700BF8FFF /* VKPinCodeViewLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,10 +98,20 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
+		7754FF392222A53700BF8FFF /* VKPinCodeViewLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				7754FF3A2222A53700BF8FFF /* VKPinCodeViewLibrary.h */,
+				7754FF3B2222A53700BF8FFF /* Info.plist */,
+			);
+			path = VKPinCodeViewLibrary;
+			sourceTree = "<group>";
+		};
 		77FD7785221F69EE00DC6541 = {
 			isa = PBXGroup;
 			children = (
 				77FD7790221F69EE00DC6541 /* VKPinCodeViewExample */,
+				7754FF392222A53700BF8FFF /* VKPinCodeViewLibrary */,
 				77FD778F221F69EE00DC6541 /* Products */,
 				17B70153E4F01E9A05AEDF58 /* Frameworks */,
 			);
@@ -73,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				77FD778E221F69EE00DC6541 /* VKPinCodeViewExample.app */,
+				7754FF382222A53700BF8FFF /* VKPinCodeViewLibrary.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,7 +143,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		7754FF332222A53700BF8FFF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7754FF3C2222A53700BF8FFF /* VKPinCodeViewLibrary.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		7754FF372222A53700BF8FFF /* VKPinCodeViewLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7754FF432222A53700BF8FFF /* Build configuration list for PBXNativeTarget "VKPinCodeViewLibrary" */;
+			buildPhases = (
+				7754FF332222A53700BF8FFF /* Headers */,
+				7754FF342222A53700BF8FFF /* Sources */,
+				7754FF352222A53700BF8FFF /* Frameworks */,
+				7754FF362222A53700BF8FFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VKPinCodeViewLibrary;
+			productName = VKPinCodeViewLibrary;
+			productReference = 7754FF382222A53700BF8FFF /* VKPinCodeViewLibrary.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		77FD778D221F69EE00DC6541 /* VKPinCodeViewExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77FD77A0221F69EF00DC6541 /* Build configuration list for PBXNativeTarget "VKPinCodeViewExample" */;
@@ -102,10 +180,12 @@
 				77FD778A221F69EE00DC6541 /* Sources */,
 				77FD778B221F69EE00DC6541 /* Frameworks */,
 				77FD778C221F69EE00DC6541 /* Resources */,
+				7754FF442222A53700BF8FFF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7754FF3E2222A53700BF8FFF /* PBXTargetDependency */,
 			);
 			name = VKPinCodeViewExample;
 			productName = VKPinCodeViewExample;
@@ -122,6 +202,9 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Vladimir Kokhanevich";
 				TargetAttributes = {
+					7754FF372222A53700BF8FFF = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					77FD778D221F69EE00DC6541 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -141,11 +224,19 @@
 			projectRoot = "";
 			targets = (
 				77FD778D221F69EE00DC6541 /* VKPinCodeViewExample */,
+				7754FF372222A53700BF8FFF /* VKPinCodeViewLibrary */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7754FF362222A53700BF8FFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		77FD778C221F69EE00DC6541 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -159,6 +250,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7754FF342222A53700BF8FFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		77FD778A221F69EE00DC6541 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,6 +271,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7754FF3E2222A53700BF8FFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7754FF372222A53700BF8FFF /* VKPinCodeViewLibrary */;
+			targetProxy = 7754FF3D2222A53700BF8FFF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		77FD7795221F69EE00DC6541 /* Main.storyboard */ = {
@@ -194,6 +300,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7754FF412222A53700BF8FFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = VKPinCodeViewLibrary/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vk.app.VKPinCodeViewLibrary;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7754FF422222A53700BF8FFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = VKPinCodeViewLibrary/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vk.app.VKPinCodeViewLibrary;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		77FD779E221F69EF00DC6541 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -347,6 +507,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7754FF432222A53700BF8FFF /* Build configuration list for PBXNativeTarget "VKPinCodeViewLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7754FF412222A53700BF8FFF /* Debug */,
+				7754FF422222A53700BF8FFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		77FD7789221F69EE00DC6541 /* Build configuration list for PBXProject "VKPinCodeViewExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
