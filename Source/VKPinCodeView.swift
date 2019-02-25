@@ -1,15 +1,18 @@
 //
 //  VKPinCodeView.swift
-//  gpn
 //
-//  Created by Vladimir Kokhanevich on 20/02/2019.
-//  Copyright © 2019 Reksoft. All rights reserved.
+//  Created by Vladimir Kokhanevich on 22/02/2019.
+//  Copyright © 2019 Vladimir Kokhanevich. All rights reserved.
 //
 
 import UIKit
 
+/// Vadation closure. Use it as soon as you need to validate input text which is different from digits.
 public typealias VKPinCodeValidator = (_ code: String) -> Bool
 
+
+/// Main container with PIN input items.
+/// You can use it in storyboards, nib files or right in code.
 public class VKPinCodeView: UIView {
     
     private lazy var _stack = UIStackView(frame: bounds)
@@ -28,11 +31,13 @@ public class VKPinCodeView: UIView {
         return _code.count == 0 ? 0 : _code.count - 1
     }
     
+    /// Number of input items.
     public var length: Int = 4 {
         
         willSet { createLabels() }
     }
     
+    /// Spacing between input items.
     public var spacing: CGFloat = 16 {
         
         willSet { if newValue != spacing { _stack.spacing = newValue } }
@@ -43,21 +48,29 @@ public class VKPinCodeView: UIView {
         willSet { _textField.keyboardType = newValue }
     }
     
+    /// Enable or disable error mode. Default value is false.
     public var isError = false {
         
         didSet { if oldValue != isError { updateErrorState() } }
     }
     
-    public var animateSelectedEntry = true
+    /// Enable or disable selection animation for active input item. Default value is true.
+    public var animateSelectedInputItem = true
     
+    /// Enable or disable shake animation on error. Default value is true.
     public var shakeOnError = true
     
+    /// Fires when PIN is completely entered.
     public var onComplete: ((_ code: String) -> Void)?
     
+    /// Fires after each char has been entered.
     public var onCodeDidChange: ((_ code: String) -> Void)?
     
+    /// Fires after begin editing.
     public var onBeginEditing: (() -> Void)?
     
+    /// Vadation closure. Use it as soon as you need to validate input text which is different from digits.
+    /// You dodn't need this by default.
     public var validator: VKPinCodeValidator?
     
     
@@ -69,7 +82,8 @@ public class VKPinCodeView: UIView {
         setup()
     }
     
-    init(style: VKEntryViewStyle) {
+    /// Prefered initializer if you don't use storyboards or nib files.
+    public init(style: VKEntryViewStyle) {
         
         super.init(frame: CGRect.zero)
         _style = style
@@ -93,11 +107,6 @@ public class VKPinCodeView: UIView {
     
     // MARK: - Overrides
     
-    override public func prepareForInterfaceBuilder() {
-        
-        setup()
-    }
-    
     @discardableResult override public func becomeFirstResponder() -> Bool {
         
         onBecomeActive()
@@ -112,6 +121,8 @@ public class VKPinCodeView: UIView {
     
     // MARK: - Public methods
     
+    /// Use this method as soon as you need a custom appearence.
+    /// It is definitely need if you use storyboards or nib files.
     public func setStyle(_ style: VKEntryViewStyle) {
         
         _style = style

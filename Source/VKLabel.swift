@@ -1,6 +1,5 @@
 //
 //  VKLabel.swift
-//  VKPinCodeViewExample
 //
 //  Created by Vladimir Kokhanevich on 22/02/2019.
 //  Copyright © 2019 Vladimir Kokhanevich. All rights reserved.
@@ -8,6 +7,7 @@
 
 import UIKit
 
+/// Input item which is use in main container.
 public class VKLabel: UILabel {
     
     private var _selectedColor: UIColor = .lightGray
@@ -46,21 +46,24 @@ public class VKLabel: UILabel {
         return path
     }
     
+    /// Enable or disable selection animation for active input item. Default value is true.
     public var animateWhileSelected = true
     
+    /// Enable or disable selection for displaying active state.
     public var isSelected = false {
         
         didSet { if oldValue != isSelected { updateSelectedState() } }
     }
     
+    /// Enable or disable selection for displaying error state.
     public var isError = false {
         
         didSet {  updateErrorState() }
     }
     
-    
     // MARK: - Initializers
     
+    /// Prefered initializer if you don't use storyboards or nib files.
     public init(_ style: VKEntryViewStyle) {
         
         super.init(frame: CGRect.zero)
@@ -78,7 +81,6 @@ public class VKLabel: UILabel {
         super.init(coder: aDecoder)
     }
     
-    
     // MARK: - Overrides
     
     public override func layoutSubviews() {
@@ -89,9 +91,9 @@ public class VKLabel: UILabel {
         _line.path = _linePath.cgPath
     }
     
-    
     // MARK: - Public methods
     
+    /// Set appearence style.
     public func setEntryViewStyle(_ style: VKEntryViewStyle) {
         
         _styleName = style.styleName

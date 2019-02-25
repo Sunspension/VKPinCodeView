@@ -1,6 +1,5 @@
 //
 //  EntryViewStyle.swift
-//  VKPinCodeViewExample
 //
 //  Created by Vladimir Kokhanevich on 23/02/2019.
 //  Copyright © 2019 Vladimir Kokhanevich. All rights reserved.
