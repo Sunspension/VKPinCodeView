@@ -54,6 +54,11 @@ VKPinCodeView is open to contribute, see contribution notes.
 - Xcode 10.1+
 - Swift 4.2+
 
+## Author
+
+Made with :heart: by Vladimir Kokhanevich
+
+
 ## License
 
 VKPinCodeView is released under the MIT license. [See LICENSE](https://github.com/Sunspension/VKPinCodeView/blob/master/LICENSE) for details.
