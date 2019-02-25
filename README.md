@@ -45,7 +45,7 @@ If you still do not use any of dependency managers, just ask yourself why you st
 VKPinCodeView is open to contribute, see contribution notes.
 - If you want to contribute, submit a pull request
 - If you found a bug, open an issue.
-- If you need help with a feature or need to disscuss something else please contact me (vladimir.kokhanevich@gmail.com)
+- If you need help with a feature or need to disscuss something else please contact me vladimir.kokhanevich@gmail.com
 
 
 ## Requirements
