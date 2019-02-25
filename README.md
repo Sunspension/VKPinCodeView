@@ -40,6 +40,23 @@ github "Sunspension/VKPinCodeView"
 If you still do not use any of dependency managers, just ask yourself why you still do this?
 
 
+## Minimal Setup
+
+```swift
+override func viewDidLoad() {
+   super.viewDidLoad()
+        
+      let pinView = VKPinCodeView(style: VKEntryViewStyle.border)
+      pinView.translatesAutoresizingMaskIntoConstraints = false
+      view.addSubview(pinView)
+      pinView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+      pinView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+      pinView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+      pinView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+      pinView.becomeFirstResponder()
+}
+```
+
 ## Contribute
 
 VKPinCodeView is open to contribute, see contribution notes.
