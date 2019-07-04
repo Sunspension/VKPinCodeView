@@ -46,7 +46,7 @@ If you still do not use any of dependency managers, just ask yourself why you st
 override func viewDidLoad() {
    super.viewDidLoad()
         
-      let pinView = VKPinCodeView(style: VKEntryViewStyle.border)
+   let pinView = VKPinCodeView(style: VKEntryViewStyle.border)
       pinView.translatesAutoresizingMaskIntoConstraints = false
       view.addSubview(pinView)
       pinView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
@@ -69,7 +69,7 @@ VKPinCodeView is open to contribute, see contribution notes.
 
 - iOS 9.0+ 
 - Xcode 10.1+
-- Swift 4.2+
+- Swift 5.0
 
 ## Author
 
