@@ -5,7 +5,7 @@
 ## Features
 
 - [x] Variable PIN length
-- [x] Two display styles (underline and border)
+- [x] Underline and Border styles
 - [x] Customizable appearence
 - [x] Error status with / without shake animation
 - [x] Highlight selected entry with / without animation
