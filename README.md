@@ -47,13 +47,13 @@ override func viewDidLoad() {
    super.viewDidLoad()
         
    let pinView = VKPinCodeView(style: VKEntryViewStyle.border)
-      pinView.translatesAutoresizingMaskIntoConstraints = false
-      view.addSubview(pinView)
-      pinView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-      pinView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-      pinView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-      pinView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-      pinView.becomeFirstResponder()
+   pinView.translatesAutoresizingMaskIntoConstraints = false
+   view.addSubview(pinView)
+   pinView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+   pinView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+   pinView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+   pinView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+   pinView.becomeFirstResponder()
 }
 ```
 
