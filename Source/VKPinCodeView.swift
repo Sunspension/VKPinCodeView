@@ -60,6 +60,9 @@ public class VKPinCodeView: UIView {
     /// Enable or disable shake animation on error. Default value is true.
     public var shakeOnError = true
     
+    /// Enable or disable code reset after error. Default value is false.
+    public var resetCodeAfterError = false
+    
     /// Fires when PIN is completely entered.
     public var onComplete: ((_ code: String) -> Void)?
     
@@ -127,6 +130,17 @@ public class VKPinCodeView: UIView {
         
         _style = style
         createLabels()
+    }
+    
+    /// Use this method to reset the code
+    public func resetCode() {
+        _code = ""
+        _textField.text = nil
+
+        _stack.arrangedSubviews.forEach({
+            ($0 as! VKLabel).text = nil
+        })
+        isError = false
     }
     
     // MARK: - Private methods
@@ -234,6 +248,11 @@ public class VKPinCodeView: UIView {
             
             turnOffSelectedLabel()
             if shakeOnError { shakeAnimation() }
+            else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                    self.resetCode()
+                })
+            }
         }
         
         _stack.arrangedSubviews.forEach({ ($0 as! VKLabel).isError = isError })
@@ -245,6 +264,7 @@ public class VKPinCodeView: UIView {
         animation.timingFunction = CAMediaTimingFunction(name: .linear)
         animation.duration = 0.5
         animation.values = [-15.0, 15.0, -15.0, 15.0, -12.0, 12.0, -10.0, 10.0, 0.0]
+        animation.delegate = self
         layer.add(animation, forKey: "shake")
     }
     
@@ -277,4 +297,18 @@ extension VKPinCodeView: UITextFieldDelegate {
         if isError { return }
         turnOffSelectedLabel()
     }
+}
+
+extension VKPinCodeView: CAAnimationDelegate {
+    
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if flag {
+            if resetCodeAfterError {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                    self.resetCode()
+                })
+            }
+        }
+    }
+    
 }
