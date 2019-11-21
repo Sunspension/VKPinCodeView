@@ -60,19 +60,19 @@ public class VKPinCodeView: UIView {
     /// Enable or disable shake animation on error. Default value is true.
     public var shakeOnError = true
     
-    /// Enable or disable code reset after error. Default value is false.
-    public var resetCodeAfterError = false
+    /// Setup your preferred error reset type. Default value is none.
+    public var resetAfterError = ResetType.none
     
     /// Fires when PIN is completely entered.
     public var onComplete: ((_ code: String) -> Void)?
     
-    /// Fires after each char has been entered.
+    /// Fires after an each char has been entered.
     public var onCodeDidChange: ((_ code: String) -> Void)?
     
     /// Fires after begin editing.
     public var onBeginEditing: (() -> Void)?
     
-    /// Vadation closure. Use it as soon as you need to validate input text which is different from digits.
+    /// Vadation closure. Use it as soon as you need to validate a text input which is different from a digits.
     /// You dodn't need this by default.
     public var validator: VKPinCodeValidator?
     
@@ -279,7 +279,12 @@ public class VKPinCodeView: UIView {
 extension VKPinCodeView: UITextFieldDelegate {
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
-        
+
+        if isError, case ResetType.onUserInteraction = resetAfterError {
+
+            self.resetCode()
+        }
+
         isError = false
         onBeginEditing?()
     }
@@ -302,12 +307,15 @@ extension VKPinCodeView: UITextFieldDelegate {
 extension VKPinCodeView: CAAnimationDelegate {
     
     public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        if flag {
-            if resetCodeAfterError {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                    self.resetCode()
-                })
-            }
+
+        if !flag { return }
+
+        switch resetAfterError {
+
+            case let .afterError(delay):
+                DispatchQueue.main.asyncAfter(deadline: .now() + delay) { self.resetCode() }
+            default:
+                break
         }
     }
     

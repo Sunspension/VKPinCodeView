@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0892FB0F2386E91F00C59E23 /* ResetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892FB0D2386E91E00C59E23 /* ResetType.swift */; };
+		0892FB152386EAA800C59E23 /* ResetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892FB112386EAA800C59E23 /* ResetType.swift */; };
+		0892FB172386EAA800C59E23 /* VKPinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892FB122386EAA800C59E23 /* VKPinCodeView.swift */; };
+		0892FB192386EAA800C59E23 /* VKEntryViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892FB132386EAA800C59E23 /* VKEntryViewStyle.swift */; };
+		0892FB1B2386EAA800C59E23 /* VKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892FB142386EAA800C59E23 /* VKLabel.swift */; };
 		7709F0E02221DC1200CA659F /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7709F0DF2221DC1200CA659F /* ShadowView.swift */; };
 		7754FF3C2222A53700BF8FFF /* VKPinCodeViewLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 7754FF3A2222A53700BF8FFF /* VKPinCodeViewLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7754FF3F2222A53700BF8FFF /* VKPinCodeViewLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7754FF382222A53700BF8FFF /* VKPinCodeViewLibrary.framework */; };
@@ -14,9 +19,6 @@
 		7754FF512222A69300BF8FFF /* VKPinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7754FF4E2222A69300BF8FFF /* VKPinCodeView.swift */; };
 		7754FF522222A69300BF8FFF /* VKEntryViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7754FF4F2222A69300BF8FFF /* VKEntryViewStyle.swift */; };
 		7754FF532222A69300BF8FFF /* VKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7754FF502222A69300BF8FFF /* VKLabel.swift */; };
-		7754FF582222A6A300BF8FFF /* VKPinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7754FF552222A6A300BF8FFF /* VKPinCodeView.swift */; };
-		7754FF592222A6A300BF8FFF /* VKEntryViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7754FF562222A6A300BF8FFF /* VKEntryViewStyle.swift */; };
-		7754FF5A2222A6A300BF8FFF /* VKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7754FF572222A6A300BF8FFF /* VKLabel.swift */; };
 		77FD7792221F69EE00DC6541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FD7791221F69EE00DC6541 /* AppDelegate.swift */; };
 		77FD7794221F69EE00DC6541 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FD7793221F69EE00DC6541 /* ViewController.swift */; };
 		77FD7797221F69EE00DC6541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77FD7795221F69EE00DC6541 /* Main.storyboard */; };
@@ -49,6 +51,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0892FB0D2386E91E00C59E23 /* ResetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetType.swift; sourceTree = "<group>"; };
+		0892FB112386EAA800C59E23 /* ResetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetType.swift; sourceTree = "<group>"; };
+		0892FB122386EAA800C59E23 /* VKPinCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKPinCodeView.swift; sourceTree = "<group>"; };
+		0892FB132386EAA800C59E23 /* VKEntryViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKEntryViewStyle.swift; sourceTree = "<group>"; };
+		0892FB142386EAA800C59E23 /* VKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKLabel.swift; sourceTree = "<group>"; };
 		7709F0DF2221DC1200CA659F /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		7754FF382222A53700BF8FFF /* VKPinCodeViewLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VKPinCodeViewLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7754FF3A2222A53700BF8FFF /* VKPinCodeViewLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKPinCodeViewLibrary.h; sourceTree = "<group>"; };
@@ -56,9 +63,6 @@
 		7754FF4E2222A69300BF8FFF /* VKPinCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKPinCodeView.swift; sourceTree = "<group>"; };
 		7754FF4F2222A69300BF8FFF /* VKEntryViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKEntryViewStyle.swift; sourceTree = "<group>"; };
 		7754FF502222A69300BF8FFF /* VKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKLabel.swift; sourceTree = "<group>"; };
-		7754FF552222A6A300BF8FFF /* VKPinCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKPinCodeView.swift; sourceTree = "<group>"; };
-		7754FF562222A6A300BF8FFF /* VKEntryViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKEntryViewStyle.swift; sourceTree = "<group>"; };
-		7754FF572222A6A300BF8FFF /* VKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKLabel.swift; sourceTree = "<group>"; };
 		77FD778E221F69EE00DC6541 /* VKPinCodeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKPinCodeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77FD7791221F69EE00DC6541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77FD7793221F69EE00DC6541 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0892FB102386EAA800C59E23 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0892FB112386EAA800C59E23 /* ResetType.swift */,
+				0892FB122386EAA800C59E23 /* VKPinCodeView.swift */,
+				0892FB132386EAA800C59E23 /* VKEntryViewStyle.swift */,
+				0892FB142386EAA800C59E23 /* VKLabel.swift */,
+			);
+			name = Source;
+			path = ../../Source;
+			sourceTree = "<group>";
+		};
 		17B70153E4F01E9A05AEDF58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,17 +126,7 @@
 				7754FF4E2222A69300BF8FFF /* VKPinCodeView.swift */,
 				7754FF4F2222A69300BF8FFF /* VKEntryViewStyle.swift */,
 				7754FF502222A69300BF8FFF /* VKLabel.swift */,
-			);
-			name = Source;
-			path = ../../Source;
-			sourceTree = "<group>";
-		};
-		7754FF542222A6A300BF8FFF /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				7754FF552222A6A300BF8FFF /* VKPinCodeView.swift */,
-				7754FF562222A6A300BF8FFF /* VKEntryViewStyle.swift */,
-				7754FF572222A6A300BF8FFF /* VKLabel.swift */,
+				0892FB0D2386E91E00C59E23 /* ResetType.swift */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -148,7 +154,7 @@
 		77FD7790221F69EE00DC6541 /* VKPinCodeViewExample */ = {
 			isa = PBXGroup;
 			children = (
-				7754FF542222A6A300BF8FFF /* Source */,
+				0892FB102386EAA800C59E23 /* Source */,
 				77FD7791221F69EE00DC6541 /* AppDelegate.swift */,
 				77FD7793221F69EE00DC6541 /* ViewController.swift */,
 				77FD7795221F69EE00DC6541 /* Main.storyboard */,
@@ -277,6 +283,7 @@
 				7754FF522222A69300BF8FFF /* VKEntryViewStyle.swift in Sources */,
 				7754FF532222A69300BF8FFF /* VKLabel.swift in Sources */,
 				7754FF512222A69300BF8FFF /* VKPinCodeView.swift in Sources */,
+				0892FB0F2386E91F00C59E23 /* ResetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,12 +291,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7754FF592222A6A300BF8FFF /* VKEntryViewStyle.swift in Sources */,
-				7754FF5A2222A6A300BF8FFF /* VKLabel.swift in Sources */,
-				7754FF582222A6A300BF8FFF /* VKPinCodeView.swift in Sources */,
 				77FD7794221F69EE00DC6541 /* ViewController.swift in Sources */,
 				77FD7792221F69EE00DC6541 /* AppDelegate.swift in Sources */,
 				7709F0E02221DC1200CA659F /* ShadowView.swift in Sources */,
+				0892FB1B2386EAA800C59E23 /* VKLabel.swift in Sources */,
+				0892FB172386EAA800C59E23 /* VKPinCodeView.swift in Sources */,
+				0892FB192386EAA800C59E23 /* VKEntryViewStyle.swift in Sources */,
+				0892FB152386EAA800C59E23 /* ResetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
