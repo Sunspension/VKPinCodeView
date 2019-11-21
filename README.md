@@ -8,7 +8,7 @@
 - [x] Underline and Border styles
 - [x] Customizable appearence
 - [x] Error status with / without shake animation
-- [x] Resetting error status by user interaction or automatically with a custom delay
+- [x] Resetting error status manually, by user interaction or automatically with a custom delay
 - [x] Highlighting selected entry with / without animation
 - [x] Callbacks (begin editing, change code, complete)
 - [x] Custom input validation
