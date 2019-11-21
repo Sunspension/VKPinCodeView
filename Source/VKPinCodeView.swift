@@ -99,7 +99,7 @@ public class VKPinCodeView: UIView {
     }
     
     
-    // MARK: - Life cycle
+    // MARK: Life cycle
     
     override public func awakeFromNib() {
         
@@ -108,7 +108,7 @@ public class VKPinCodeView: UIView {
     }
     
     
-    // MARK: - Overrides
+    // MARK: Overrides
     
     @discardableResult override public func becomeFirstResponder() -> Bool {
         
@@ -122,7 +122,7 @@ public class VKPinCodeView: UIView {
     }
     
     
-    // MARK: - Public methods
+    // MARK: Public methods
     
     /// Use this method as soon as you need a custom appearence.
     /// It is definitely need if you use storyboards or nib files.
@@ -136,14 +136,11 @@ public class VKPinCodeView: UIView {
     public func resetCode() {
         _code = ""
         _textField.text = nil
-
-        _stack.arrangedSubviews.forEach({
-            ($0 as! VKLabel).text = nil
-        })
+        _stack.arrangedSubviews.forEach({ ($0 as! VKLabel).text = nil })
         isError = false
     }
     
-    // MARK: - Private methods
+    // MARK: Private methods
     
     private func setup() {
         
@@ -248,11 +245,6 @@ public class VKPinCodeView: UIView {
             
             turnOffSelectedLabel()
             if shakeOnError { shakeAnimation() }
-            else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                    self.resetCode()
-                })
-            }
         }
         
         _stack.arrangedSubviews.forEach({ ($0 as! VKLabel).isError = isError })
@@ -280,13 +272,8 @@ extension VKPinCodeView: UITextFieldDelegate {
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
 
-        if isError, case ResetType.onUserInteraction = resetAfterError {
-
-            self.resetCode()
-        }
-
-        isError = false
         onBeginEditing?()
+        handleErrorStateOnBeginEditing()
     }
     
     public func textField(_ textField: UITextField,
@@ -301,6 +288,16 @@ extension VKPinCodeView: UITextFieldDelegate {
         
         if isError { return }
         turnOffSelectedLabel()
+    }
+
+    private func handleErrorStateOnBeginEditing() {
+
+        if isError, case ResetType.onUserInteraction = resetAfterError {
+
+            return self.resetCode()
+        }
+
+        isError = false
     }
 }
 
@@ -318,5 +315,4 @@ extension VKPinCodeView: CAAnimationDelegate {
                 break
         }
     }
-    
 }
