@@ -63,8 +63,7 @@ public final class VKPinCodeView: UIView {
     /// Setup your preferred error reset type. Default value is none.
     public var resetAfterError = ResetType.none
     
-    /// Fires when PIN is completely entered.
-    /// Closure with the complete PIN. In case if code is valid return true otherwise false.
+    /// Fires when PIN is completely entered. In case if code is valid return true otherwise false.
     public var onComplete: ((_ code: String) -> Bool)?
     
     /// Fires after an each char has been entered.
