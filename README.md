@@ -5,13 +5,12 @@
 ## Features
 
 - [x] Variable PIN length
-- [x] Underline and Border styles
-- [x] Customizable appearence
-- [x] Error status with / without shake animation
-- [x] Resetting error status manually, by user interaction or automatically with a custom delay
-- [x] Highlighting selected entry with / without animation
-- [x] Callbacks (begin editing, change code, complete)
-- [x] Custom input validation
+- [x] Underline, border and custom styles
+- [x] The error status with / without shake animation
+- [x] Resetting the error status manually, by user interaction or automatically with a custom delay
+- [x] Highlighting a selected entry with / without animation
+- [x] Text input callbacks (begin editing, change code, complete)
+- [x] Text input validation
 
 
 ## Preview
@@ -54,6 +53,7 @@ override func viewDidLoad() {
    pinView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
    pinView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
    pinView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+   pinView.onSettingStyle = { UnderlineStyle(textColor: .white, lineColor: .white, lineWidth: 2) }
    pinView.becomeFirstResponder()
 }
 ```
