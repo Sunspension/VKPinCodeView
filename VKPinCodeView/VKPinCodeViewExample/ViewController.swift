@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstPinView: VKPinCodeView!
     
     @IBOutlet weak var secondPinView: VKPinCodeView!
-    
+
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -30,39 +31,27 @@ class ViewController: UIViewController {
         
         view.endEditing(true)
     }
-    
+
+
     private func setupPinViews() {
-        
-        let underline = VKEntryViewStyle.underline(
-            font: UIFont.systemFont(ofSize: 22, weight: .medium),
-            textColor: .white,
-            errorTextColor: .red,
-            lineWidth: 2,
-            lineColor: .white,
-            selectedLineColor: .lightGray,
-            errorLineColor: .red)
-        
-        firstPinView.setStyle(underline)
+
+        firstPinView.onSettingStyle = {
+
+            UnderlineStyle(textColor: .white, lineColor: .white, lineWidth: 2)
+        }
+
         firstPinView.validator = validator(_:)
         
-        let borderStyle = VKEntryViewStyle.border(
-            font: UIFont.systemFont(ofSize: 22, weight: .medium),
-            textColor: .white,
-            errorTextColor: .red,
-            cornerRadius: 10,
-            borderWidth: 2,
-            borderColor: .white,
-            selectedBorderColor: .lightGray,
-            errorBorderColor: .red,
-            backgroundColor: .clear,
-            selectedBackgroundColor: UIColor(named: "selection")!)
-        
-        secondPinView.setStyle(borderStyle)
-        secondPinView.onComplete = { code in
-            
-            if code != "1111" { self.secondPinView.isError = true }
+        secondPinView.onSettingStyle = {
+
+            BorderStyle(
+                textColor: .white,
+                borderWidth: 2,
+                backgroundColor: .clear,
+                selectedBackgroundColor: UIColor(named: "selection")!)
         }
-        
+
+        secondPinView.onComplete = { code in code == "1111" }
         secondPinView.validator = validator(_:)
     }
     
