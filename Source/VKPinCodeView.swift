@@ -1,5 +1,6 @@
 //
 //  VKPinCodeView.swift
+//  VKPinCodeView
 //
 //  Created by Vladimir Kokhanevich on 22/02/2019.
 //  Copyright © 2019 Vladimir Kokhanevich. All rights reserved.
@@ -8,18 +9,16 @@
 import UIKit
 
 /// Vadation closure. Use it as soon as you need to validate input text which is different from digits.
-public typealias VKPinCodeValidator = (_ code: String) -> Bool
+public typealias PinCodeValidator = (_ code: String) -> Bool
 
 
 /// Main container with PIN input items.
 /// You can use it in storyboards, nib files or right in code.
-public class VKPinCodeView: UIView {
+public final class VKPinCodeView: UIView {
     
     private lazy var _stack = UIStackView(frame: bounds)
     
     private lazy var _textField = UITextField(frame: bounds)
-    
-    private var _style: VKEntryViewStyle?
     
     private var _code = "" {
         
@@ -29,6 +28,12 @@ public class VKPinCodeView: UIView {
     private var _activeIndex: Int {
         
         return _code.count == 0 ? 0 : _code.count - 1
+    }
+
+    /// Enable or disable error mode. Default value is false.
+    private (set) var isError = false {
+
+        didSet { if oldValue != isError { updateErrorState() } }
     }
     
     /// Number of input items.
@@ -42,16 +47,11 @@ public class VKPinCodeView: UIView {
         
         willSet { if newValue != spacing { _stack.spacing = newValue } }
     }
-    
+
+    /// Setup the keaboard type. Default value is numberPad.
     public var keyBoardType = UIKeyboardType.numberPad {
         
         willSet { _textField.keyboardType = newValue }
-    }
-    
-    /// Enable or disable error mode. Default value is false.
-    public var isError = false {
-        
-        didSet { if oldValue != isError { updateErrorState() } }
     }
     
     /// Enable or disable selection animation for active input item. Default value is true.
@@ -64,7 +64,8 @@ public class VKPinCodeView: UIView {
     public var resetAfterError = ResetType.none
     
     /// Fires when PIN is completely entered.
-    public var onComplete: ((_ code: String) -> Void)?
+    /// Closure with the complete PIN. In case if code is valid return true otherwise false.
+    public var onComplete: ((_ code: String) -> Bool)?
     
     /// Fires after an each char has been entered.
     public var onCodeDidChange: ((_ code: String) -> Void)?
@@ -73,23 +74,26 @@ public class VKPinCodeView: UIView {
     public var onBeginEditing: (() -> Void)?
     
     /// Vadation closure. Use it as soon as you need to validate a text input which is different from a digits.
-    /// You dodn't need this by default.
-    public var validator: VKPinCodeValidator?
+    /// You don't need this by default.
+    public var validator: PinCodeValidator?
+
+    /// Fires every time when a label is ready to set a style
+    public var onSettingStyle: (() -> EntryViewStyle)? {
+
+        didSet { createLabels() }
+    }
     
     
     // MARK: - Initializers
-    
+
+    public convenience init() {
+
+        self.init(frame: CGRect.zero)
+    }
+
     override public init(frame: CGRect) {
         
         super.init(frame: frame)
-        setup()
-    }
-    
-    /// Prefered initializer if you don't use storyboards or nib files.
-    public init(style: VKEntryViewStyle) {
-        
-        super.init(frame: CGRect.zero)
-        _style = style
         setup()
     }
     
@@ -109,8 +113,9 @@ public class VKPinCodeView: UIView {
     
     
     // MARK: Overrides
-    
-    @discardableResult override public func becomeFirstResponder() -> Bool {
+
+    @discardableResult
+    override public func becomeFirstResponder() -> Bool {
         
         onBecomeActive()
         return super.becomeFirstResponder()
@@ -123,15 +128,7 @@ public class VKPinCodeView: UIView {
     
     
     // MARK: Public methods
-    
-    /// Use this method as soon as you need a custom appearence.
-    /// It is definitely need if you use storyboards or nib files.
-    public func setStyle(_ style: VKEntryViewStyle) {
-        
-        _style = style
-        createLabels()
-    }
-    
+
     /// Use this method to reset the code
     public func resetCode() {
         _code = ""
@@ -191,10 +188,9 @@ public class VKPinCodeView: UIView {
         }
         
         if _code.count == length {
-            
-            onComplete?(_code)
-            turnOffSelectedLabel()
-            _textField.resignFirstResponder()
+
+            if !(onComplete?(_code) ?? true) { self.isError = true }
+            self._textField.resignFirstResponder()
         }
     }
     
@@ -234,9 +230,8 @@ public class VKPinCodeView: UIView {
     
     private func createLabels() {
         
-        let style = _style ?? VKEntryViewStyle.border
         _stack.arrangedSubviews.forEach { $0.removeFromSuperview() }
-        for _ in 1 ... length { _stack.addArrangedSubview(VKLabel(style)) }
+        for _ in 1 ... length { _stack.addArrangedSubview(VKLabel(onSettingStyle?())) }
     }
     
     private func updateErrorState() {
