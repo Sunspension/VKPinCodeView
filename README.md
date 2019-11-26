@@ -9,7 +9,7 @@
 - [x] Underline, border and custom styles
 - [x] The error status with / without shake animation
 - [x] Resetting the error status manually, by user interaction or automatically with a custom delay
-- [x] Highlighting a selected entry with / without animation
+- [x] Highlighting the selected entry with / without animation
 - [x] Text input callbacks (begin editing, change code, complete)
 - [x] Text input validation
 
