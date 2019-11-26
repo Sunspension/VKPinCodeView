@@ -9,7 +9,7 @@
 import UIKit
 
 /// Friednly helper for the selection animation.
-extension EntryViewStyle {
+public extension EntryViewStyle {
 
     func animateSelection(keyPath: String, values: [Any]) -> CAKeyframeAnimation {
 
