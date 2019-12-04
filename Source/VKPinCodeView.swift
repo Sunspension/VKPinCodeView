@@ -30,8 +30,8 @@ public final class VKPinCodeView: UIView {
         return _code.count == 0 ? 0 : _code.count - 1
     }
 
-    /// Enable or disable error mode. Default value is false.
-    private (set) var isError = false {
+    /// Enable or disable the error mode. Default value is false.
+    public var isError = false {
 
         didSet { if oldValue != isError { updateErrorState() } }
     }
@@ -63,8 +63,8 @@ public final class VKPinCodeView: UIView {
     /// Setup your preferred error reset type. Default value is none.
     public var resetAfterError = ResetType.none
     
-    /// Fires when PIN is completely entered. In case if code is valid return true otherwise false.
-    public var onComplete: ((_ code: String) -> Bool)?
+    /// Fires when PIN is completely entered. Provides actuall code and completion closure to set error state.
+    public var onComplete: ((_ code: String, _ pinView: VKPinCodeView) -> Void)?
     
     /// Fires after an each char has been entered.
     public var onCodeDidChange: ((_ code: String) -> Void)?
@@ -188,8 +188,8 @@ public final class VKPinCodeView: UIView {
         
         if _code.count == length {
 
-            if !(onComplete?(_code) ?? true) { self.isError = true }
-            self._textField.resignFirstResponder()
+            _textField.resignFirstResponder()
+            onComplete?(_code, self)
         }
     }
     
@@ -288,7 +288,7 @@ extension VKPinCodeView: UITextFieldDelegate {
 
         if isError, case ResetType.onUserInteraction = resetAfterError {
 
-            return self.resetCode()
+            return resetCode()
         }
 
         isError = false
