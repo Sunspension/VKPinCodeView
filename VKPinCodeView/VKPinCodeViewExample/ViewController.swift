@@ -51,7 +51,11 @@ class ViewController: UIViewController {
                 selectedBackgroundColor: UIColor(named: "selection")!)
         }
 
-        secondPinView.onComplete = { code in code == "1111" }
+        secondPinView.onComplete = { code, pinView in
+
+            if code != "1111" { pinView.isError = true }
+        }
+
         secondPinView.validator = validator(_:)
     }
     
