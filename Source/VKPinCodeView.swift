@@ -36,7 +36,7 @@ public final class VKPinCodeView: UIView {
         return _code.count == 0 ? 0 : _code.count - 1
     }
 
-    private var layoutDirection: InterfaceLayoutDirection = .ltr
+    private var _layoutDirection: InterfaceLayoutDirection = .ltr
 
 
     /// Enable or disable the error mode. Default value is false.
@@ -154,7 +154,7 @@ public final class VKPinCodeView: UIView {
 
         if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft {
 
-            layoutDirection = .rtl
+            _layoutDirection = .rtl
         }
 
         createLabels()
@@ -277,7 +277,7 @@ public final class VKPinCodeView: UIView {
 
     private func normalizeIndex(index: Int) -> Int {
 
-        return layoutDirection == .ltr ? index : length - 1 - index
+        return _layoutDirection == .ltr ? index : length - 1 - index
     }
 }
 
