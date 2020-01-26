@@ -12,7 +12,7 @@ import UIKit
 public typealias PinCodeValidator = (_ code: String) -> Bool
 
 
-public enum InterfaceLayoutDirection {
+private enum InterfaceLayoutDirection {
 
     case ltr, rtl
 }
@@ -36,7 +36,7 @@ public final class VKPinCodeView: UIView {
         return _code.count == 0 ? 0 : _code.count - 1
     }
 
-    public var layoutDirection: InterfaceLayoutDirection = .ltr
+    private var layoutDirection: InterfaceLayoutDirection = .ltr
 
 
     /// Enable or disable the error mode. Default value is false.
@@ -57,7 +57,7 @@ public final class VKPinCodeView: UIView {
         willSet { if newValue != spacing { _stack.spacing = newValue } }
     }
 
-    /// Setup the keaboard type. Default value is numberPad.
+    /// Setup a keaboard type. Default value is numberPad.
     public var keyBoardType = UIKeyboardType.numberPad {
         
         willSet { _textField.keyboardType = newValue }
@@ -69,7 +69,7 @@ public final class VKPinCodeView: UIView {
     /// Enable or disable shake animation on error. Default value is true.
     public var shakeOnError = true
     
-    /// Setup your preferred error reset type. Default value is none.
+    /// Setup a preferred error reset type. Default value is none.
     public var resetAfterError = ResetType.none
     
     /// Fires when PIN is completely entered. Provides actuall code and completion closure to set error state.
