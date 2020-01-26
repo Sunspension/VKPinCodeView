@@ -12,6 +12,7 @@
 - [x] Highlighting a selected entry with / without animation
 - [x] Text input callbacks (begin editing, change code, complete)
 - [x] Text input validation
+- [x] LTR/RTL support
 
 
 ## Preview
@@ -38,7 +39,7 @@ github "Sunspension/VKPinCodeView"
 
 ### Manually
 
-If you still do not use any of dependency managers, just ask yourself why you still do this?
+Just copy and paste Source folder to you project. 
 
 
 ## Minimal Setup
