@@ -12,6 +12,12 @@ import UIKit
 public typealias PinCodeValidator = (_ code: String) -> Bool
 
 
+private enum InterfaceLayoutDirection {
+
+    case ltr, rtl
+}
+
+
 /// Main container with PIN input items.
 /// You can use it in storyboards, nib files or right in code.
 public final class VKPinCodeView: UIView {
@@ -29,6 +35,9 @@ public final class VKPinCodeView: UIView {
         
         return _code.count == 0 ? 0 : _code.count - 1
     }
+
+    private var layoutDirection: InterfaceLayoutDirection = .ltr
+
 
     /// Enable or disable the error mode. Default value is false.
     public var isError = false {
@@ -48,7 +57,7 @@ public final class VKPinCodeView: UIView {
         willSet { if newValue != spacing { _stack.spacing = newValue } }
     }
 
-    /// Setup the keaboard type. Default value is numberPad.
+    /// Setup a keaboard type. Default value is numberPad.
     public var keyBoardType = UIKeyboardType.numberPad {
         
         willSet { _textField.keyboardType = newValue }
@@ -60,7 +69,7 @@ public final class VKPinCodeView: UIView {
     /// Enable or disable shake animation on error. Default value is true.
     public var shakeOnError = true
     
-    /// Setup your preferred error reset type. Default value is none.
+    /// Setup a preferred error reset type. Default value is none.
     public var resetAfterError = ResetType.none
     
     /// Fires when PIN is completely entered. Provides actuall code and completion closure to set error state.
@@ -142,6 +151,12 @@ public final class VKPinCodeView: UIView {
         
         setupTextField()
         setupStackView()
+
+        if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft {
+
+            layoutDirection = .rtl
+        }
+
         createLabels()
     }
     
@@ -204,25 +219,25 @@ public final class VKPinCodeView: UIView {
     private func appendChar(_ text: String) {
         
         if text.isEmpty { return }
-        
-        let activeLabel = text.count - 1
-        let label = _stack.arrangedSubviews[activeLabel] as! UILabel
-        let index = text.index(text.startIndex, offsetBy: activeLabel)
-        label.text = String(text[index])
-        _code += label.text!
+
+        let index = text.count - 1
+        let activeLabel = _stack.arrangedSubviews[index] as! UILabel
+        let charIndex = text.index(text.startIndex, offsetBy: index)
+        activeLabel.text = String(text[charIndex])
+        _code += activeLabel.text!
     }
     
     private func highlightActiveLabel(_ activeIndex: Int) {
         
         for i in 0 ..< _stack.arrangedSubviews.count {
-            
-            let label = _stack.arrangedSubviews[i] as! VKLabel
-            label.isSelected = i == activeIndex
+
+            let label = _stack.arrangedSubviews[normalizeIndex(index: i)] as! VKLabel
+            label.isSelected = i == normalizeIndex(index: activeIndex)
         }
     }
     
     private func turnOffSelectedLabel() {
-        
+
         let label = _stack.arrangedSubviews[_activeIndex] as! VKLabel
         label.isSelected = false
     }
@@ -258,6 +273,11 @@ public final class VKPinCodeView: UIView {
         
         _textField.becomeFirstResponder()
         highlightActiveLabel(_activeIndex)
+    }
+
+    private func normalizeIndex(index: Int) -> Int {
+
+        return layoutDirection == .ltr ? index : length - 1 - index
     }
 }
 
