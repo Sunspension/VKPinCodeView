@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0806FE22238C5D20007B87DA /* VKPinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE16238C5B0B007B87DA /* VKPinCodeView.swift */; };
-		0806FE23238C5D29007B87DA /* VKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE19238C5B0B007B87DA /* VKLabel.swift */; };
-		0806FE24238C5D2E007B87DA /* ResetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE14238C5B0B007B87DA /* ResetType.swift */; };
-		0806FE25238C5D32007B87DA /* EntryViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE15238C5B0B007B87DA /* EntryViewStyle.swift */; };
-		0806FE26238C5D35007B87DA /* BorderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE17238C5B0B007B87DA /* BorderStyle.swift */; };
-		0806FE27238C5D39007B87DA /* UnderlineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE18238C5B0B007B87DA /* UnderlineStyle.swift */; };
-		0806FE28238C5D3C007B87DA /* EntryViewStyle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE20238C5BD1007B87DA /* EntryViewStyle+Extensions.swift */; };
-		0806FE31238C5D66007B87DA /* ResetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE2A238C5D66007B87DA /* ResetType.swift */; };
-		0806FE32238C5D66007B87DA /* EntryViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE2B238C5D66007B87DA /* EntryViewStyle.swift */; };
-		0806FE33238C5D66007B87DA /* VKPinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE2C238C5D66007B87DA /* VKPinCodeView.swift */; };
-		0806FE34238C5D66007B87DA /* BorderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE2D238C5D66007B87DA /* BorderStyle.swift */; };
-		0806FE35238C5D66007B87DA /* EntryViewStyle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE2E238C5D66007B87DA /* EntryViewStyle+Extensions.swift */; };
-		0806FE36238C5D66007B87DA /* UnderlineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE2F238C5D66007B87DA /* UnderlineStyle.swift */; };
-		0806FE37238C5D66007B87DA /* VKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0806FE30238C5D66007B87DA /* VKLabel.swift */; };
+		0883B962240828320087A72A /* ResetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B95B240828310087A72A /* ResetType.swift */; };
+		0883B963240828320087A72A /* EntryViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B95C240828310087A72A /* EntryViewStyle.swift */; };
+		0883B964240828320087A72A /* VKPinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B95D240828310087A72A /* VKPinCodeView.swift */; };
+		0883B965240828320087A72A /* BorderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B95E240828310087A72A /* BorderStyle.swift */; };
+		0883B966240828320087A72A /* EntryViewStyle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B95F240828310087A72A /* EntryViewStyle+Extensions.swift */; };
+		0883B967240828320087A72A /* UnderlineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B960240828310087A72A /* UnderlineStyle.swift */; };
+		0883B968240828320087A72A /* VKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B961240828310087A72A /* VKLabel.swift */; };
+		0883B971240828410087A72A /* ResetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B96A240828410087A72A /* ResetType.swift */; };
+		0883B972240828410087A72A /* EntryViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B96B240828410087A72A /* EntryViewStyle.swift */; };
+		0883B973240828410087A72A /* VKPinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B96C240828410087A72A /* VKPinCodeView.swift */; };
+		0883B974240828410087A72A /* BorderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B96D240828410087A72A /* BorderStyle.swift */; };
+		0883B975240828410087A72A /* EntryViewStyle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B96E240828410087A72A /* EntryViewStyle+Extensions.swift */; };
+		0883B976240828410087A72A /* UnderlineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B96F240828410087A72A /* UnderlineStyle.swift */; };
+		0883B977240828410087A72A /* VKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883B970240828410087A72A /* VKLabel.swift */; };
 		7709F0E02221DC1200CA659F /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7709F0DF2221DC1200CA659F /* ShadowView.swift */; };
 		7754FF3C2222A53700BF8FFF /* VKPinCodeViewLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 7754FF3A2222A53700BF8FFF /* VKPinCodeViewLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7754FF3F2222A53700BF8FFF /* VKPinCodeViewLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7754FF382222A53700BF8FFF /* VKPinCodeViewLibrary.framework */; };
@@ -57,20 +57,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0806FE14238C5B0B007B87DA /* ResetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetType.swift; sourceTree = "<group>"; };
-		0806FE15238C5B0B007B87DA /* EntryViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewStyle.swift; sourceTree = "<group>"; };
-		0806FE16238C5B0B007B87DA /* VKPinCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKPinCodeView.swift; sourceTree = "<group>"; };
-		0806FE17238C5B0B007B87DA /* BorderStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderStyle.swift; sourceTree = "<group>"; };
-		0806FE18238C5B0B007B87DA /* UnderlineStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineStyle.swift; sourceTree = "<group>"; };
-		0806FE19238C5B0B007B87DA /* VKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKLabel.swift; sourceTree = "<group>"; };
-		0806FE20238C5BD1007B87DA /* EntryViewStyle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntryViewStyle+Extensions.swift"; sourceTree = "<group>"; };
-		0806FE2A238C5D66007B87DA /* ResetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetType.swift; sourceTree = "<group>"; };
-		0806FE2B238C5D66007B87DA /* EntryViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewStyle.swift; sourceTree = "<group>"; };
-		0806FE2C238C5D66007B87DA /* VKPinCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKPinCodeView.swift; sourceTree = "<group>"; };
-		0806FE2D238C5D66007B87DA /* BorderStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderStyle.swift; sourceTree = "<group>"; };
-		0806FE2E238C5D66007B87DA /* EntryViewStyle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EntryViewStyle+Extensions.swift"; sourceTree = "<group>"; };
-		0806FE2F238C5D66007B87DA /* UnderlineStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineStyle.swift; sourceTree = "<group>"; };
-		0806FE30238C5D66007B87DA /* VKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKLabel.swift; sourceTree = "<group>"; };
+		0883B95B240828310087A72A /* ResetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetType.swift; sourceTree = "<group>"; };
+		0883B95C240828310087A72A /* EntryViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewStyle.swift; sourceTree = "<group>"; };
+		0883B95D240828310087A72A /* VKPinCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKPinCodeView.swift; sourceTree = "<group>"; };
+		0883B95E240828310087A72A /* BorderStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderStyle.swift; sourceTree = "<group>"; };
+		0883B95F240828310087A72A /* EntryViewStyle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EntryViewStyle+Extensions.swift"; sourceTree = "<group>"; };
+		0883B960240828310087A72A /* UnderlineStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineStyle.swift; sourceTree = "<group>"; };
+		0883B961240828310087A72A /* VKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKLabel.swift; sourceTree = "<group>"; };
+		0883B96A240828410087A72A /* ResetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetType.swift; sourceTree = "<group>"; };
+		0883B96B240828410087A72A /* EntryViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewStyle.swift; sourceTree = "<group>"; };
+		0883B96C240828410087A72A /* VKPinCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKPinCodeView.swift; sourceTree = "<group>"; };
+		0883B96D240828410087A72A /* BorderStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderStyle.swift; sourceTree = "<group>"; };
+		0883B96E240828410087A72A /* EntryViewStyle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EntryViewStyle+Extensions.swift"; sourceTree = "<group>"; };
+		0883B96F240828410087A72A /* UnderlineStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineStyle.swift; sourceTree = "<group>"; };
+		0883B970240828410087A72A /* VKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKLabel.swift; sourceTree = "<group>"; };
 		7709F0DF2221DC1200CA659F /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		7754FF382222A53700BF8FFF /* VKPinCodeViewLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VKPinCodeViewLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7754FF3A2222A53700BF8FFF /* VKPinCodeViewLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKPinCodeViewLibrary.h; sourceTree = "<group>"; };
@@ -103,34 +103,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0806FE13238C5B0B007B87DA /* Source */ = {
+		0883B95A240828310087A72A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				0806FE19238C5B0B007B87DA /* VKLabel.swift */,
-				0806FE16238C5B0B007B87DA /* VKPinCodeView.swift */,
-				0806FE14238C5B0B007B87DA /* ResetType.swift */,
-				0806FE15238C5B0B007B87DA /* EntryViewStyle.swift */,
-				0806FE17238C5B0B007B87DA /* BorderStyle.swift */,
-				0806FE18238C5B0B007B87DA /* UnderlineStyle.swift */,
-				0806FE20238C5BD1007B87DA /* EntryViewStyle+Extensions.swift */,
+				0883B95B240828310087A72A /* ResetType.swift */,
+				0883B95C240828310087A72A /* EntryViewStyle.swift */,
+				0883B95D240828310087A72A /* VKPinCodeView.swift */,
+				0883B95E240828310087A72A /* BorderStyle.swift */,
+				0883B95F240828310087A72A /* EntryViewStyle+Extensions.swift */,
+				0883B960240828310087A72A /* UnderlineStyle.swift */,
+				0883B961240828310087A72A /* VKLabel.swift */,
 			);
-			name = Source;
-			path = ../../Source;
+			name = Sources;
+			path = ../../Sources;
 			sourceTree = "<group>";
 		};
-		0806FE29238C5D66007B87DA /* Source */ = {
+		0883B969240828410087A72A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				0806FE30238C5D66007B87DA /* VKLabel.swift */,
-				0806FE2C238C5D66007B87DA /* VKPinCodeView.swift */,
-				0806FE2A238C5D66007B87DA /* ResetType.swift */,
-				0806FE2B238C5D66007B87DA /* EntryViewStyle.swift */,
-				0806FE2D238C5D66007B87DA /* BorderStyle.swift */,
-				0806FE2F238C5D66007B87DA /* UnderlineStyle.swift */,
-				0806FE2E238C5D66007B87DA /* EntryViewStyle+Extensions.swift */,
+				0883B96A240828410087A72A /* ResetType.swift */,
+				0883B96B240828410087A72A /* EntryViewStyle.swift */,
+				0883B96C240828410087A72A /* VKPinCodeView.swift */,
+				0883B96D240828410087A72A /* BorderStyle.swift */,
+				0883B96E240828410087A72A /* EntryViewStyle+Extensions.swift */,
+				0883B96F240828410087A72A /* UnderlineStyle.swift */,
+				0883B970240828410087A72A /* VKLabel.swift */,
 			);
-			name = Source;
-			path = ../../Source;
+			name = Sources;
+			path = ../../Sources;
 			sourceTree = "<group>";
 		};
 		17B70153E4F01E9A05AEDF58 /* Frameworks */ = {
@@ -143,7 +143,7 @@
 		7754FF392222A53700BF8FFF /* VKPinCodeViewLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				0806FE29238C5D66007B87DA /* Source */,
+				0883B969240828410087A72A /* Sources */,
 				7754FF3A2222A53700BF8FFF /* VKPinCodeViewLibrary.h */,
 				7754FF3B2222A53700BF8FFF /* Info.plist */,
 			);
@@ -172,7 +172,7 @@
 		77FD7790221F69EE00DC6541 /* VKPinCodeViewExample */ = {
 			isa = PBXGroup;
 			children = (
-				0806FE13238C5B0B007B87DA /* Source */,
+				0883B95A240828310087A72A /* Sources */,
 				77FD7791221F69EE00DC6541 /* AppDelegate.swift */,
 				77FD7793221F69EE00DC6541 /* ViewController.swift */,
 				77FD7795221F69EE00DC6541 /* Main.storyboard */,
@@ -298,13 +298,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0806FE33238C5D66007B87DA /* VKPinCodeView.swift in Sources */,
-				0806FE31238C5D66007B87DA /* ResetType.swift in Sources */,
-				0806FE32238C5D66007B87DA /* EntryViewStyle.swift in Sources */,
-				0806FE37238C5D66007B87DA /* VKLabel.swift in Sources */,
-				0806FE35238C5D66007B87DA /* EntryViewStyle+Extensions.swift in Sources */,
-				0806FE36238C5D66007B87DA /* UnderlineStyle.swift in Sources */,
-				0806FE34238C5D66007B87DA /* BorderStyle.swift in Sources */,
+				0883B973240828410087A72A /* VKPinCodeView.swift in Sources */,
+				0883B971240828410087A72A /* ResetType.swift in Sources */,
+				0883B972240828410087A72A /* EntryViewStyle.swift in Sources */,
+				0883B977240828410087A72A /* VKLabel.swift in Sources */,
+				0883B975240828410087A72A /* EntryViewStyle+Extensions.swift in Sources */,
+				0883B976240828410087A72A /* UnderlineStyle.swift in Sources */,
+				0883B974240828410087A72A /* BorderStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,16 +312,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0806FE22238C5D20007B87DA /* VKPinCodeView.swift in Sources */,
-				0806FE24238C5D2E007B87DA /* ResetType.swift in Sources */,
+				0883B964240828320087A72A /* VKPinCodeView.swift in Sources */,
 				77FD7794221F69EE00DC6541 /* ViewController.swift in Sources */,
-				0806FE28238C5D3C007B87DA /* EntryViewStyle+Extensions.swift in Sources */,
-				0806FE26238C5D35007B87DA /* BorderStyle.swift in Sources */,
-				0806FE23238C5D29007B87DA /* VKLabel.swift in Sources */,
 				77FD7792221F69EE00DC6541 /* AppDelegate.swift in Sources */,
-				0806FE25238C5D32007B87DA /* EntryViewStyle.swift in Sources */,
-				0806FE27238C5D39007B87DA /* UnderlineStyle.swift in Sources */,
+				0883B966240828320087A72A /* EntryViewStyle+Extensions.swift in Sources */,
+				0883B963240828320087A72A /* EntryViewStyle.swift in Sources */,
+				0883B965240828320087A72A /* BorderStyle.swift in Sources */,
 				7709F0E02221DC1200CA659F /* ShadowView.swift in Sources */,
+				0883B968240828320087A72A /* VKLabel.swift in Sources */,
+				0883B967240828320087A72A /* UnderlineStyle.swift in Sources */,
+				0883B962240828320087A72A /* ResetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
