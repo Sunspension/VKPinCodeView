@@ -2,6 +2,7 @@
 ![(Swift Version)](https://img.shields.io/badge/swift-5.1-orange)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/VKPinCodeView.svg)](https://img.shields.io/cocoapods/v/VKPinCodeView.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen)](https://docs.swift.org/package-manager/PackageDescription/PackageDescription.html)
 
 ## Features
 
