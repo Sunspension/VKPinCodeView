@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "VKPinCodeView"
-  spec.version      = "0.4.0"
+  spec.version      = "0.4.1"
   spec.summary      = "VKPinCodeView is a library written in Swift that provides the easy peasy way to enter code from SMS."
 
   spec.description  = <<-DESC
@@ -18,7 +18,7 @@ Pod::Spec.new do |spec|
 
   spec.source = { :git => "https://github.com/Sunspension/VKPinCodeView.git", :tag => spec.version }
 
-  spec.source_files = "Source", "Source/*.swift"
+  spec.source_files = "Source", "Sources/*.swift"
   spec.swift_version = "5.0"
 
 end
