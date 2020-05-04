@@ -28,13 +28,13 @@ public final class VKPinCodeView: UIView {
     
     private var _activeIndex: Int {
         
-        return _code.count == 0 ? 0 : _code.count - 1
+        return code.count == 0 ? 0 : code.count - 1
     }
 
     /// Current input value
-    public private(set) var _code = "" {
+    public private(set) var code = "" {
         
-        didSet { onCodeDidChange?(_code) }
+        didSet { onCodeDidChange?(code) }
     }
     
     /// The custom accessory view to display when the view becomes the first responder
@@ -150,7 +150,7 @@ public final class VKPinCodeView: UIView {
 
     /// Use this method to reset the code
     public func resetCode() {
-        _code = ""
+        code = ""
         _textField.text = nil
         _stack.arrangedSubviews.forEach({ ($0 as! VKLabel).text = nil })
         isError = false
@@ -198,24 +198,24 @@ public final class VKPinCodeView: UIView {
         
         let text = sender.text!
         
-        if _code.count > text.count {
+        if code.count > text.count {
             
             deleteChar(text)
-            var index = _code.count - 1
+            var index = code.count - 1
             if index < 0 { index = 0 }
             highlightActiveLabel(index)
         }
         else {
             
             appendChar(text)
-            let index = _code.count - 1
+            let index = code.count - 1
             highlightActiveLabel(index)
         }
         
-        if _code.count == length {
+        if code.count == length {
 
             _textField.resignFirstResponder()
-            onComplete?(_code, self)
+            onComplete?(code, self)
         }
     }
     
@@ -224,7 +224,7 @@ public final class VKPinCodeView: UIView {
         let index = text.count
         let previous = _stack.arrangedSubviews[index] as! UILabel
         previous.text = ""
-        _code = text
+        code = text
     }
     
     private func appendChar(_ text: String) {
@@ -235,7 +235,7 @@ public final class VKPinCodeView: UIView {
         let activeLabel = _stack.arrangedSubviews[index] as! UILabel
         let charIndex = text.index(text.startIndex, offsetBy: index)
         activeLabel.text = String(text[charIndex])
-        _code += activeLabel.text!
+        code += activeLabel.text!
     }
     
     private func highlightActiveLabel(_ activeIndex: Int) {
@@ -306,7 +306,7 @@ extension VKPinCodeView: UITextFieldDelegate {
                    replacementString string: String) -> Bool {
         
         if string.isEmpty { return true }
-        return (validator?(string) ?? true) && _code.count < length
+        return (validator?(string) ?? true) && code.count < length
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
