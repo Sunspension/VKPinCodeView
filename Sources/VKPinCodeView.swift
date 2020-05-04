@@ -36,6 +36,16 @@ public final class VKPinCodeView: UIView {
         return _code.count == 0 ? 0 : _code.count - 1
     }
 
+    /// The custom accessory view to display when the view becomes the first responder
+    public override var inputAccessoryView: UIView? {
+        get {
+            _textField.inputAccessoryView
+        }
+        set {
+            _textField.inputAccessoryView = newValue
+        }
+    }
+    
     private var _layoutDirection: InterfaceLayoutDirection = .ltr
 
 
