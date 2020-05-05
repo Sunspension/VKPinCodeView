@@ -57,7 +57,7 @@ public final class VKPinCodeView: UIView {
     }
     
     /// View layout direction. Default value is **default**.
-    public var _layoutDirection: InterfaceLayoutDirection = .default {
+    public var layoutDirection: InterfaceLayoutDirection = .default {
         
         didSet {
             updateSemanticContentAttribute()
@@ -206,7 +206,7 @@ public final class VKPinCodeView: UIView {
         
         let newSemanticContentAttribute: UISemanticContentAttribute
         
-        switch _layoutDirection {
+        switch layoutDirection {
         case .default:
             newSemanticContentAttribute = .unspecified
         case .ltr:
@@ -315,7 +315,7 @@ public final class VKPinCodeView: UIView {
         
         let isRTL: Bool
         
-        switch _layoutDirection {
+        switch layoutDirection {
         case .default:
             isRTL = UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft
         case .ltr:
