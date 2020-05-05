@@ -12,9 +12,16 @@ import UIKit
 public typealias PinCodeValidator = (_ code: String) -> Bool
 
 
-private enum InterfaceLayoutDirection {
+public enum InterfaceLayoutDirection {
 
-    case ltr, rtl
+    /// Current user interface layout direction
+    case `default`
+    
+    /// Force left-to-right layout
+    case ltr
+    
+    /// Force right-to-left layout
+    case rtl
 }
 
 
@@ -49,8 +56,13 @@ public final class VKPinCodeView: UIView {
         }
     }
     
-    private var _layoutDirection: InterfaceLayoutDirection = .ltr
-
+    /// View layout direction. Default value is **default**.
+    public var _layoutDirection: InterfaceLayoutDirection = .default {
+        
+        didSet {
+            updateSemanticContentAttribute()
+        }
+    }
 
     /// Enable or disable the error mode. Default value is false.
     public var isError = false {
@@ -164,12 +176,6 @@ public final class VKPinCodeView: UIView {
         
         setupTextField()
         setupStackView()
-
-        if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft {
-
-            _layoutDirection = .rtl
-        }
-
         createLabels()
     }
     
@@ -194,6 +200,23 @@ public final class VKPinCodeView: UIView {
         if #available(iOS 12.0, *) { _textField.textContentType = .oneTimeCode }
         
         addSubview(_textField)
+    }
+    
+    private func updateSemanticContentAttribute() {
+        
+        let newSemanticContentAttribute: UISemanticContentAttribute
+        
+        switch _layoutDirection {
+        case .default:
+            newSemanticContentAttribute = .unspecified
+        case .ltr:
+            newSemanticContentAttribute = .forceLeftToRight
+        case .rtl:
+            newSemanticContentAttribute = .forceRightToLeft
+        }
+        
+        semanticContentAttribute = newSemanticContentAttribute
+        _stack.semanticContentAttribute = newSemanticContentAttribute
     }
     
     @objc private func onTextChanged(_ sender: UITextField) {
@@ -289,8 +312,19 @@ public final class VKPinCodeView: UIView {
     }
 
     private func normalizeIndex(index: Int) -> Int {
-
-        return _layoutDirection == .ltr ? index : length - 1 - index
+        
+        let isRTL: Bool
+        
+        switch _layoutDirection {
+        case .default:
+            isRTL = UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft
+        case .ltr:
+            isRTL = false
+        case .rtl:
+            isRTL = true
+        }
+        
+        return isRTL ? length - 1 - index : index
     }
 }
 
