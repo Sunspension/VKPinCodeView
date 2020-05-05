@@ -26,11 +26,13 @@ public final class VKPinCodeView: UIView {
     
     private lazy var _textField = UITextField(frame: bounds)
     
+    private var _inputAccessoryView: UIView?
+    
     private var _activeIndex: Int {
         
         return code.count == 0 ? 0 : code.count - 1
     }
-
+    
     /// Current input value
     public private(set) var code = "" {
         
@@ -40,10 +42,10 @@ public final class VKPinCodeView: UIView {
     /// The custom accessory view to display when the view becomes the first responder
     public override var inputAccessoryView: UIView? {
         get {
-            _textField.inputAccessoryView
+            _inputAccessoryView
         }
         set {
-            _textField.inputAccessoryView = newValue
+            _inputAccessoryView = newValue
         }
     }
     
