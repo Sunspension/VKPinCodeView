@@ -40,7 +40,7 @@ github "Sunspension/VKPinCodeView"
 
 ### Manually
 
-Just copy and paste Source folder to you project. 
+Just copy and paste Source folder into your project. 
 
 
 ## Minimal Setup
