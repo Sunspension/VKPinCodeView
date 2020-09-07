@@ -63,6 +63,18 @@ public final class VKPinCodeView: UIView {
         willSet { _textField.keyboardType = newValue }
     }
     
+    /// Setup a keaboard appearence. Default value is light.
+    public var keyBoardAppearance = UIKeyboardAppearance.light {
+        
+        willSet { _textField.keyboardAppearance = newValue }
+    }
+    
+    /// Setup autocapitalization.  Default value is none.
+    public var autocapitalizationType = UITextAutocapitalizationType.none {
+        
+        willSet { _textField.autocapitalizationType = newValue }
+    }
+    
     /// Enable or disable selection animation for active input item. Default value is true.
     public var animateSelectedInputItem = true
     
@@ -173,6 +185,8 @@ public final class VKPinCodeView: UIView {
     private func setupTextField() {
         
         _textField.keyboardType = keyBoardType
+        _textField.autocapitalizationType = autocapitalizationType
+        _textField.keyboardAppearance = keyBoardAppearance
         _textField.isHidden = true
         _textField.delegate = self
         _textField.autoresizingMask = [.flexibleWidth, .flexibleHeight]
