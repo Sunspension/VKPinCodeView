@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Vadation closure. Use it as soon as you need to validate input text which is different from digits.
+/// Validation closure. Use it as soon as you need to validate input text which is different from digits.
 public typealias PinCodeValidator = (_ code: String) -> Bool
 
 
@@ -18,8 +18,7 @@ private enum InterfaceLayoutDirection {
 }
 
 
-/// Main container with PIN input items.
-/// You can use it in storyboards, nib files or right in code.
+/// Main container with PIN input items. You can use it in storyboards, nib files or right in the code.
 public final class VKPinCodeView: UIView {
     
     private lazy var _stack = UIStackView(frame: bounds)
@@ -39,7 +38,7 @@ public final class VKPinCodeView: UIView {
     private var _layoutDirection: InterfaceLayoutDirection = .ltr
 
 
-    /// Enable or disable the error mode. Default value is false.
+    /// Enable or disable error mode. Default value is false.
     public var isError = false {
 
         didSet { if oldValue != isError { updateErrorState() } }
@@ -57,19 +56,19 @@ public final class VKPinCodeView: UIView {
         willSet { if newValue != spacing { _stack.spacing = newValue } }
     }
 
-    /// Setup a keaboard type. Default value is numberPad.
+    /// Setup a keyboard type. Default value is numberPad.
     public var keyBoardType = UIKeyboardType.numberPad {
         
         willSet { _textField.keyboardType = newValue }
     }
     
-    /// Setup a keaboard appearence. Default value is light.
+    /// Setup a keyboard appearence. Default value is light.
     public var keyBoardAppearance = UIKeyboardAppearance.light {
         
         willSet { _textField.keyboardAppearance = newValue }
     }
     
-    /// Setup autocapitalization.  Default value is none.
+    /// Setup autocapitalization. Default value is none.
     public var autocapitalizationType = UITextAutocapitalizationType.none {
         
         willSet { _textField.autocapitalizationType = newValue }
@@ -84,20 +83,19 @@ public final class VKPinCodeView: UIView {
     /// Setup a preferred error reset type. Default value is none.
     public var resetAfterError = ResetType.none
     
-    /// Fires when PIN is completely entered. Provides actuall code and completion closure to set error state.
+    /// Fires when PIN is completely entered. Provides actual code and view for managing error state.
     public var onComplete: ((_ code: String, _ pinView: VKPinCodeView) -> Void)?
     
-    /// Fires after an each char has been entered.
+    /// Fires after each char has been entered.
     public var onCodeDidChange: ((_ code: String) -> Void)?
     
     /// Fires after begin editing.
     public var onBeginEditing: (() -> Void)?
     
-    /// Vadation closure. Use it as soon as you need to validate a text input which is different from a digits.
-    /// You don't need this by default.
+    /// Text input validation. You might be need it if text input is different from digits. You don't need this by default.
     public var validator: PinCodeValidator?
 
-    /// Fires every time when a label is ready to set a style
+    /// Fires every time when the label is ready to set the style.
     public var onSettingStyle: (() -> EntryViewStyle)? {
 
         didSet { createLabels() }

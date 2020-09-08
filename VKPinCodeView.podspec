@@ -1,11 +1,11 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "VKPinCodeView"
-  spec.version      = "0.4.1"
+  spec.version      = "0.4.2"
   spec.summary      = "VKPinCodeView is a library written in Swift that provides the easy peasy way to enter code from SMS."
 
   spec.description  = <<-DESC
-  VKPinCodeView is great when you need just in seconds make your custom entry PIN view. It is simple and elegant UI component written in Swift, and works like a charm. You can easily customise appearance and get auto fill iOS 12 feature right from the box.  
+  VKPinCodeView is great when you need just in seconds make your custom entry PIN view. It is simple and elegant UI component written in Swift, and works like a charm. You can easily customise appearance and get auto fill iOS 12 feature right from the box.
                    DESC
 
   spec.homepage     = "https://github.com/Sunspension/VKPinCodeView"
