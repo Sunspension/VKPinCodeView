@@ -35,14 +35,14 @@ class ViewController: UIViewController {
 
     private func setupPinViews() {
 
-        firstPinView.onSettingStyle = {
+        firstPinView.onSetupStyle = { _ in
 
             UnderlineStyle(textColor: .white, lineColor: .white, lineWidth: 2)
         }
-
-        firstPinView.validator = validator(_:)
         
-        secondPinView.onSettingStyle = {
+        firstPinView.settings = VKPinCodeViewSettings(inputValidator: validator(_:))
+        
+        secondPinView.onSetupStyle = { _ in
 
             BorderStyle(
                 textColor: .white,
@@ -55,8 +55,8 @@ class ViewController: UIViewController {
 
             if code != "1111" { pinView.isError = true }
         }
-
-        secondPinView.validator = validator(_:)
+        
+        secondPinView.settings = VKPinCodeViewSettings(inputValidator: validator(_:))
     }
     
     private func validator(_ code: String) -> Bool {

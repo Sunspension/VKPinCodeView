@@ -8,30 +8,32 @@
 
 import UIKit
 
-public final class BorderStyle: EntryViewStyle {
+public struct BorderStyle {
 
-    private var _font: UIFont
+    private let _font: UIFont
 
-    private var _textColor: UIColor
+    private let _textColor: UIColor
 
-    private var _errorTextColor: UIColor
+    private let _errorTextColor: UIColor
 
-    private var _cornerRadius: CGFloat
+    private let _cornerRadius: CGFloat
 
-    private var _borderColor: UIColor
+    private let _borderColor: UIColor
 
-    private var _borderWidth: CGFloat
+    private let _borderWidth: CGFloat
 
-    private var _selectedBorderColor: UIColor
+    private let _selectedBorderColor: UIColor
 
-    private var _errorBorderColor: UIColor
+    private let _errorBorderColor: UIColor
 
-    private var _backgroundColor: UIColor
+    private let _backgroundColor: UIColor
 
-    private var _selectedBackgroundColor: UIColor
+    private let _selectedBackgroundColor: UIColor
+    
+    private let _animateWhileSelected = true
 
 
-    public required init(
+    public init(
         font: UIFont = UIFont.systemFont(ofSize: 22),
         textColor: UIColor = .black,
         errorTextColor: UIColor = .red,
@@ -54,7 +56,10 @@ public final class BorderStyle: EntryViewStyle {
         _backgroundColor = backgroundColor
         _selectedBackgroundColor = selectedBackgroundColor
     }
+}
 
+extension BorderStyle: EntryViewStyle {
+    
     public func onSetStyle(_ label: VKLabel) {
 
         let layer = label.layer
@@ -77,14 +82,14 @@ public final class BorderStyle: EntryViewStyle {
             layer.borderColor = _selectedBorderColor.cgColor
             layer.backgroundColor = _selectedBackgroundColor.cgColor
 
-            if label.animateWhileSelected {
+            if _animateWhileSelected {
 
                 let colors = [_borderColor.cgColor,
                 _selectedBorderColor.cgColor,
                 _selectedBorderColor.cgColor,
                 _borderColor.cgColor]
 
-                let animation = animateSelection(keyPath: #keyPath(CALayer.borderColor), values: colors)
+                let animation = selectionAnimation(#keyPath(CALayer.borderColor), values: colors)
                 layer.add(animation, forKey: "borderColorAnimation")
             }
         }

@@ -11,7 +11,6 @@ import UIKit
 /// Validation closure. Use it as soon as you need to validate input text which is different from digits.
 public typealias PinCodeValidator = (_ code: String) -> Bool
 
-
 private enum InterfaceLayoutDirection {
 
     case ltr, rtl
@@ -44,44 +43,19 @@ public final class VKPinCodeView: UIView {
         didSet { if oldValue != isError { updateErrorState() } }
     }
     
-    /// Number of input items.
-    public var length: Int = 4 {
+    public var settings = VKPinCodeViewSettings() {
         
-        willSet { createLabels() }
+        didSet { onNewSettings() }
     }
     
-    /// Spacing between input items.
-    public var spacing: CGFloat = 16 {
+    public var isSecureEntry = false {
         
-        willSet { if newValue != spacing { _stack.spacing = newValue } }
+        didSet {
+            
+            if isSecureEntry { replaceTextToSecureSymbol() }
+            else { restoreOriginalText() }
+        }
     }
-
-    /// Setup a keyboard type. Default value is numberPad.
-    public var keyBoardType = UIKeyboardType.numberPad {
-        
-        willSet { _textField.keyboardType = newValue }
-    }
-    
-    /// Setup a keyboard appearence. Default value is light.
-    public var keyBoardAppearance = UIKeyboardAppearance.light {
-        
-        willSet { _textField.keyboardAppearance = newValue }
-    }
-    
-    /// Setup autocapitalization. Default value is none.
-    public var autocapitalizationType = UITextAutocapitalizationType.none {
-        
-        willSet { _textField.autocapitalizationType = newValue }
-    }
-    
-    /// Enable or disable selection animation for active input item. Default value is true.
-    public var animateSelectedInputItem = true
-    
-    /// Enable or disable shake animation on error. Default value is true.
-    public var shakeOnError = true
-    
-    /// Setup a preferred error reset type. Default value is none.
-    public var resetAfterError = ResetType.none
     
     /// Fires when PIN is completely entered. Provides actual code and view for managing error state.
     public var onComplete: ((_ code: String, _ pinView: VKPinCodeView) -> Void)?
@@ -91,12 +65,9 @@ public final class VKPinCodeView: UIView {
     
     /// Fires after begin editing.
     public var onBeginEditing: (() -> Void)?
-    
-    /// Text input validation. You might be need it if text input is different from digits. You don't need this by default.
-    public var validator: PinCodeValidator?
 
     /// Fires every time when the label is ready to set the style.
-    public var onSettingStyle: (() -> EntryViewStyle)? {
+    public var onSetupStyle: ((_ index: Int) -> EntryViewStyle)? {
 
         didSet { createLabels() }
     }
@@ -106,7 +77,7 @@ public final class VKPinCodeView: UIView {
 
     public convenience init() {
 
-        self.init(frame: CGRect.zero)
+        self.init(frame: .zero)
     }
 
     override public init(frame: CGRect) {
@@ -145,17 +116,17 @@ public final class VKPinCodeView: UIView {
     }
     
     
-    // MARK: Public methods
+    // MARK: Public
 
     /// Use this method to reset the code
     public func resetCode() {
         _code = ""
         _textField.text = nil
-        _stack.arrangedSubviews.forEach({ ($0 as! VKLabel).text = nil })
+        _stack.arrangedSubviews.forEach { ($0 as! VKLabel).text = nil }
         isError = false
     }
     
-    // MARK: Private methods
+    // MARK: Private
     
     private func setup() {
         
@@ -176,15 +147,15 @@ public final class VKPinCodeView: UIView {
         _stack.alignment = .fill
         _stack.axis = .horizontal
         _stack.distribution = .fillEqually
-        _stack.spacing = spacing
+        _stack.spacing = settings.spacing
         addSubview(_stack)
     }
     
     private func setupTextField() {
         
-        _textField.keyboardType = keyBoardType
-        _textField.autocapitalizationType = autocapitalizationType
-        _textField.keyboardAppearance = keyBoardAppearance
+        _textField.keyboardType = settings.keyBoardType
+        _textField.autocapitalizationType = settings.autocapitalizationType
+        _textField.keyboardAppearance = settings.keyBoardAppearance
         _textField.isHidden = true
         _textField.delegate = self
         _textField.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -193,6 +164,13 @@ public final class VKPinCodeView: UIView {
         if #available(iOS 12.0, *) { _textField.textContentType = .oneTimeCode }
         
         addSubview(_textField)
+    }
+    
+    private func onNewSettings() {
+        
+        _textField.keyboardType = settings.keyBoardType
+        _textField.autocapitalizationType = settings.autocapitalizationType
+        _textField.keyboardAppearance = settings.keyBoardAppearance
     }
     
     @objc private func onTextChanged(_ sender: UITextField) {
@@ -213,7 +191,7 @@ public final class VKPinCodeView: UIView {
             highlightActiveLabel(index)
         }
         
-        if _code.count == length {
+        if _code.count == settings.lenght {
 
             _textField.resignFirstResponder()
             onComplete?(_code, self)
@@ -257,7 +235,7 @@ public final class VKPinCodeView: UIView {
     private func createLabels() {
         
         _stack.arrangedSubviews.forEach { $0.removeFromSuperview() }
-        for _ in 1 ... length { _stack.addArrangedSubview(VKLabel(onSettingStyle?())) }
+        for i in 0 ..< settings.lenght { _stack.addArrangedSubview(VKLabel(onSetupStyle?(i))) }
     }
     
     private func updateErrorState() {
@@ -265,10 +243,10 @@ public final class VKPinCodeView: UIView {
         if isError {
             
             turnOffSelectedLabel()
-            if shakeOnError { shakeAnimation() }
+            if settings.shakeOnError { shakeAnimation() }
         }
         
-        _stack.arrangedSubviews.forEach({ ($0 as! VKLabel).isError = isError })
+        _stack.arrangedSubviews.forEach { ($0 as! VKLabel).isError = isError }
     }
     
     private func shakeAnimation() {
@@ -289,10 +267,25 @@ public final class VKPinCodeView: UIView {
 
     private func normalizeIndex(index: Int) -> Int {
 
-        return _layoutDirection == .ltr ? index : length - 1 - index
+        return _layoutDirection == .ltr ? index : settings.lenght - 1 - index
+    }
+    
+    private func replaceTextToSecureSymbol() {
+        
+        _stack.arrangedSubviews
+            .forEach { ($0 as! VKLabel).text = settings.securityUnicodeSymbol }
+    }
+    
+    private func restoreOriginalText() {
+        
+        for i in 0 ..< _stack.arrangedSubviews.count {
+
+            let index = normalizeIndex(index: i)
+            let label = _stack.arrangedSubviews[index] as! VKLabel
+            label.text = String(_code[index])
+        }
     }
 }
-
 
 extension VKPinCodeView: UITextFieldDelegate {
     
@@ -307,7 +300,7 @@ extension VKPinCodeView: UITextFieldDelegate {
                    replacementString string: String) -> Bool {
         
         if string.isEmpty { return true }
-        return (validator?(string) ?? true) && _code.count < length
+        return (settings.inputValidator?(string) ?? true) && _code.count < settings.lenght
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
@@ -318,7 +311,7 @@ extension VKPinCodeView: UITextFieldDelegate {
 
     private func handleErrorStateOnBeginEditing() {
 
-        if isError, case ResetType.onUserInteraction = resetAfterError {
+        if isError, case ResetType.onUserInteraction = settings.resetAfterError {
 
             return resetCode()
         }
@@ -333,12 +326,20 @@ extension VKPinCodeView: CAAnimationDelegate {
 
         if !flag { return }
 
-        switch resetAfterError {
+        switch settings.resetAfterError {
 
             case let .afterError(delay):
                 DispatchQueue.main.asyncAfter(deadline: .now() + delay) { self.resetCode() }
             default:
                 break
         }
+    }
+}
+
+private extension StringProtocol {
+    
+    subscript(offset: Int) -> Character {
+    
+        self[index(startIndex, offsetBy: offset)]
     }
 }

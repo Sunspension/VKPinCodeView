@@ -13,9 +13,6 @@ public class VKLabel: UILabel {
 
     private var _style: EntryViewStyle?
     
-    /// Enable or disable selection animation for active input item. Default value is true.
-    public var animateWhileSelected = true
-    
     /// Enable or disable selection for displaying active state.
     public var isSelected = false {
         
@@ -25,16 +22,17 @@ public class VKLabel: UILabel {
     /// Enable or disable selection for displaying error state.
     public var isError = false {
         
-        didSet {  updateErrorState() }
+        didSet { updateErrorState() }
     }
+    
     
     // MARK: - Initializers
 
     /// Prefered initializer if you don't use storyboards or nib files.
-    public init(_ style: EntryViewStyle?) {
+    public required init(_ style: EntryViewStyle?) {
 
         super.init(frame: CGRect.zero)
-        setStyle(style)
+        applyStyle(style)
     }
 
     
@@ -54,7 +52,7 @@ public class VKLabel: UILabel {
     // MARK: - Public methods
 
     /// Set appearence style.
-    public func setStyle(_ style: EntryViewStyle?) {
+    public func applyStyle(_ style: EntryViewStyle?) {
 
         _style = style
         _style?.onSetStyle(self)

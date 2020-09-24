@@ -8,26 +8,28 @@
 
 import UIKit
 
-public final class UnderlineStyle: EntryViewStyle {
+public struct UnderlineStyle {
 
-    private var _line = CAShapeLayer()
+    private let _line = CAShapeLayer()
 
-    private var _font: UIFont
+    private let _font: UIFont
 
-    private var _textColor: UIColor
+    private let _textColor: UIColor
 
-    private var _errorTextColor: UIColor
+    private let _errorTextColor: UIColor
 
-    private var _lineColor: UIColor
+    private let _lineColor: UIColor
 
-    private var _selectedLineColor: UIColor
+    private let _selectedLineColor: UIColor
 
-    private var _lineWidth: CGFloat
+    private let _lineWidth: CGFloat
 
-    private var _errorLineColor: UIColor
+    private let _errorLineColor: UIColor
+    
+    private let _animateWhileSelected = true
 
 
-    public required init(
+    public init(
         font: UIFont = UIFont.systemFont(ofSize: 22),
         textColor: UIColor = .black,
         errorTextColor: UIColor = .red,
@@ -44,7 +46,10 @@ public final class UnderlineStyle: EntryViewStyle {
         _lineWidth = lineWidth
         _errorLineColor = errorLineColor
     }
+}
 
+extension UnderlineStyle: EntryViewStyle {
+    
     public func onSetStyle(_ label: VKLabel) {
 
         _line.strokeColor = _lineColor.cgColor
@@ -62,14 +67,14 @@ public final class UnderlineStyle: EntryViewStyle {
 
             _line.strokeColor = _selectedLineColor.cgColor
 
-            if label.animateWhileSelected {
+            if _animateWhileSelected {
 
                 let colors = [_lineColor.cgColor,
                 _selectedLineColor.cgColor,
                 _selectedLineColor.cgColor,
                 _lineColor.cgColor]
 
-                let animation = animateSelection(keyPath: #keyPath(CAShapeLayer.strokeColor), values: colors)
+                let animation = selectionAnimation(#keyPath(CAShapeLayer.strokeColor), values: colors)
                 _line.add(animation, forKey: "strokeColorAnimation")
             }
         }
