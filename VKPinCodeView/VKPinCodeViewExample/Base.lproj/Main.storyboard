@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -60,7 +60,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yw6-fK-xjO" customClass="ShadowView" customModule="VKPinCodeView" customModuleProvider="target">
-                                <rect key="frame" x="24" y="204" width="327" height="90"/>
+                                <rect key="frame" x="24" y="224" width="327" height="90"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBJ-Zt-RH7" customClass="VKPinCodeView" customModule="VKPinCodeView" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="287" height="50"/>
@@ -85,13 +85,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Border style" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBR-jY-Jsv">
-                                <rect key="frame" x="24" y="171" width="327" height="21"/>
+                                <rect key="frame" x="24" y="191" width="327" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="am1-pb-ihH">
+                                <rect key="frame" x="321" y="159" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="PBz-1O-CN4"/>
+                                    <constraint firstAttribute="width" constant="30" id="eyG-W2-JKD"/>
+                                </constraints>
+                                <state key="normal" image="unlocked lock"/>
+                                <state key="selected" image="locked lock"/>
+                                <connections>
+                                    <action selector="secureAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kqf-oq-yM3"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try to enter something different from 1111 to get the error." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfU-Dj-pS0">
-                                <rect key="frame" x="24" y="318" width="327" height="36"/>
+                                <rect key="frame" x="24" y="338" width="327" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -109,11 +121,13 @@
                             <constraint firstItem="yw6-fK-xjO" firstAttribute="top" secondItem="ZBR-jY-Jsv" secondAttribute="bottom" constant="12" id="BFv-uE-eud"/>
                             <constraint firstItem="ZBR-jY-Jsv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="C0f-fc-Uef"/>
                             <constraint firstItem="i9P-4u-vI6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Cik-bE-OQJ"/>
+                            <constraint firstItem="am1-pb-ihH" firstAttribute="trailing" secondItem="sBZ-2R-Mz8" secondAttribute="trailing" id="Cuw-gV-R8U"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yw6-fK-xjO" secondAttribute="trailing" constant="24" id="Hl8-fK-afI"/>
                             <constraint firstItem="BFB-rJ-iYj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="IyX-sF-ZNW"/>
                             <constraint firstAttribute="trailing" secondItem="i9P-4u-vI6" secondAttribute="trailing" id="JYu-Qd-erm"/>
                             <constraint firstItem="6TW-94-DGe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="K3Q-KA-C3F"/>
                             <constraint firstItem="sBZ-2R-Mz8" firstAttribute="top" secondItem="BFB-rJ-iYj" secondAttribute="bottom" constant="12" id="OX9-RT-ysR"/>
+                            <constraint firstItem="am1-pb-ihH" firstAttribute="top" secondItem="sBZ-2R-Mz8" secondAttribute="bottom" constant="12" id="OcV-p7-75B"/>
                             <constraint firstItem="6TW-94-DGe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QyL-6A-igh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BFB-rJ-iYj" secondAttribute="trailing" constant="24" id="WEr-ix-LpB"/>
                             <constraint firstItem="6TW-94-DGe" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="Xip-EX-i0U"/>
@@ -121,7 +135,7 @@
                             <constraint firstItem="sBZ-2R-Mz8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="ane-KN-wlh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hfU-Dj-pS0" secondAttribute="trailing" constant="24" id="bKn-rl-A87"/>
                             <constraint firstItem="hfU-Dj-pS0" firstAttribute="top" secondItem="yw6-fK-xjO" secondAttribute="bottom" constant="24" id="hM5-U0-wRZ"/>
-                            <constraint firstItem="ZBR-jY-Jsv" firstAttribute="top" secondItem="sBZ-2R-Mz8" secondAttribute="bottom" constant="24" id="iAJ-TQ-vEo"/>
+                            <constraint firstItem="ZBR-jY-Jsv" firstAttribute="top" secondItem="sBZ-2R-Mz8" secondAttribute="bottom" constant="44" id="iAJ-TQ-vEo"/>
                             <constraint firstItem="yw6-fK-xjO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="sEb-oI-9eR"/>
                         </constraints>
                     </view>
@@ -131,6 +145,7 @@
                         <outlet property="firstPinView" destination="7L7-kp-PqY" id="JxH-E7-JM7"/>
                         <outlet property="secondContainer" destination="yw6-fK-xjO" id="CFw-AN-xYD"/>
                         <outlet property="secondPinView" destination="PBJ-Zt-RH7" id="F19-Pq-8Mi"/>
+                        <outlet property="secureButton" destination="am1-pb-ihH" id="rxd-ZM-I3l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -140,5 +155,7 @@
     </scenes>
     <resources>
         <image name="1" width="2560" height="1600"/>
+        <image name="locked lock" width="482" height="489"/>
+        <image name="unlocked lock" width="483" height="486"/>
     </resources>
 </document>

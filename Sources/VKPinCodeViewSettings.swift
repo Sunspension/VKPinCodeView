@@ -30,6 +30,8 @@ public struct VKPinCodeViewSettings {
     
     public let securityUnicodeSymbol: String
     
+    public let shouldDisplayTextBeforeSecureSymbol: Bool
+    
     /// - parameter lenght: Number of input items. `4` by default.
     /// - parameter spacing: Spacing between input items. `16` by default.
     /// - parameter keyBoardType:`UIKeyboardType.numberPad` by default.
@@ -40,6 +42,7 @@ public struct VKPinCodeViewSettings {
     /// - parameter resetAfterError: Preferred error reset type. Default value is `none`.
     /// - parameter inputValidator: Text input validation. You might be need it if text input is different from digits. You don't need this by default.
     /// - parameter securityUnicodeSymbol: The symbool for displaying when security mode is on.
+    /// - parameter shouldDisplayTextBeforeSecureSymbol: Should display entered text first before secured symbol
     
     public init(lenght: Int = 4, 
                 spacing: CGFloat = 16, 
@@ -50,7 +53,8 @@ public struct VKPinCodeViewSettings {
                 shakeOnError: Bool = true, 
                 resetAfterError: ResetType = .none, 
                 inputValidator: PinCodeValidator? = nil, 
-                securityUnicodeSymbol: String = "\u{1F512}") {
+                securityUnicodeSymbol: String = "\u{1F512}",
+                shouldDisplayTextBeforeSecureSymbol: Bool = true) {
         
         self.lenght = lenght
         self.spacing = spacing
@@ -62,5 +66,6 @@ public struct VKPinCodeViewSettings {
         self.resetAfterError = resetAfterError
         self.inputValidator = inputValidator
         self.securityUnicodeSymbol = securityUnicodeSymbol
+        self.shouldDisplayTextBeforeSecureSymbol = shouldDisplayTextBeforeSecureSymbol
     }
 }

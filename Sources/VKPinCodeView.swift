@@ -66,7 +66,7 @@ public final class VKPinCodeView: UIView {
     /// Fires after begin editing.
     public var onBeginEditing: (() -> Void)?
 
-    /// Fires every time when the label is ready to set the style.
+    /// Fires when a label is ready to apply the style.
     public var onSetupStyle: ((_ index: Int) -> EntryViewStyle)? {
 
         didSet { createLabels() }
@@ -213,8 +213,37 @@ public final class VKPinCodeView: UIView {
         let index = text.count - 1
         let activeLabel = _stack.arrangedSubviews[index] as! UILabel
         let charIndex = text.index(text.startIndex, offsetBy: index)
-        activeLabel.text = String(text[charIndex])
-        _code += activeLabel.text!
+        
+        let symbol = String(text[charIndex])
+        _code += symbol
+        
+        if isSecureEntry {
+            
+            secureTextHandler(symbol, label: activeLabel)
+            return
+        }
+        
+        activeLabel.text = symbol
+    }
+    
+    private func secureTextHandler(_ symbol: String, label: UILabel) {
+        
+        if settings.shouldDisplayTextBeforeSecureSymbol {
+            
+            label.text = symbol
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                
+                let animation = CATransition()
+                animation.duration = 0.04
+                label.layer.add(animation, forKey: "animate secure symbol")
+                label.text = self.settings.securityUnicodeSymbol
+            }
+            
+            return
+        }
+        
+        label.text = settings.securityUnicodeSymbol
     }
     
     private func highlightActiveLabel(_ activeIndex: Int) {
@@ -272,13 +301,17 @@ public final class VKPinCodeView: UIView {
     
     private func replaceTextToSecureSymbol() {
         
-        _stack.arrangedSubviews
-            .forEach { ($0 as! VKLabel).text = settings.securityUnicodeSymbol }
+        for i in 0 ..< _code.count {
+            
+            let index = normalizeIndex(index: i)
+            let label = _stack.arrangedSubviews[index] as! VKLabel
+            label.text = settings.securityUnicodeSymbol
+        }
     }
     
     private func restoreOriginalText() {
         
-        for i in 0 ..< _stack.arrangedSubviews.count {
+        for i in 0 ..< _code.count {
 
             let index = normalizeIndex(index: i)
             let label = _stack.arrangedSubviews[index] as! VKLabel

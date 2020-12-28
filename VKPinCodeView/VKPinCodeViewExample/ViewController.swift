@@ -18,7 +18,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var secondPinView: VKPinCodeView!
 
-
+    @IBOutlet weak var secureButton: UIButton! {
+        
+        didSet {
+            
+            secureButton.layer.shadowRadius = 9
+            secureButton.layer.shadowOpacity = 0.5
+            secureButton.layer.shadowOffset = CGSize(width: 0, height: 10)
+        }
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -31,8 +40,7 @@ class ViewController: UIViewController {
         
         view.endEditing(true)
     }
-
-
+    
     private func setupPinViews() {
 
         firstPinView.onSetupStyle = { _ in
@@ -52,7 +60,7 @@ class ViewController: UIViewController {
         }
 
         secondPinView.onComplete = { code, pinView in
-
+            
             if code != "1111" { pinView.isError = true }
         }
         
@@ -62,6 +70,12 @@ class ViewController: UIViewController {
     private func validator(_ code: String) -> Bool {
         
         return !code.trimmingCharacters(in: CharacterSet.decimalDigits.inverted).isEmpty
+    }
+    
+    @IBAction private func secureAction(_ sender: Any) {
+        
+        firstPinView.isSecureEntry.toggle()
+        secureButton.isSelected = firstPinView.isSecureEntry
     }
 }
 
