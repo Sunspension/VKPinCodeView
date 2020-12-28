@@ -11,12 +11,6 @@ import UIKit
 /// Validation closure. Use it as soon as you need to validate input text which is different from digits.
 public typealias PinCodeValidator = (_ code: String) -> Bool
 
-private enum InterfaceLayoutDirection {
-
-    case ltr, rtl
-}
-
-
 /// Main container with PIN input items. You can use it in storyboards, nib files or right in the code.
 public final class VKPinCodeView: UIView {
     
@@ -33,8 +27,6 @@ public final class VKPinCodeView: UIView {
         
         return _code.count == 0 ? 0 : _code.count - 1
     }
-
-    private var _layoutDirection: InterfaceLayoutDirection = .ltr
 
 
     /// Enable or disable error mode. Default value is false.
@@ -132,12 +124,6 @@ public final class VKPinCodeView: UIView {
         
         setupTextField()
         setupStackView()
-
-        if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft {
-
-            _layoutDirection = .rtl
-        }
-
         createLabels()
     }
     
@@ -250,8 +236,8 @@ public final class VKPinCodeView: UIView {
         
         for i in 0 ..< _stack.arrangedSubviews.count {
 
-            let label = _stack.arrangedSubviews[normalizeIndex(index: i)] as! VKLabel
-            label.isSelected = i == normalizeIndex(index: activeIndex)
+            let label = _stack.arrangedSubviews[i] as! VKLabel
+            label.isSelected = i == activeIndex
         }
     }
     
@@ -293,18 +279,12 @@ public final class VKPinCodeView: UIView {
         _textField.becomeFirstResponder()
         highlightActiveLabel(_activeIndex)
     }
-
-    private func normalizeIndex(index: Int) -> Int {
-
-        return _layoutDirection == .ltr ? index : settings.lenght - 1 - index
-    }
     
     private func replaceTextToSecureSymbol() {
         
         for i in 0 ..< _code.count {
             
-            let index = normalizeIndex(index: i)
-            let label = _stack.arrangedSubviews[index] as! VKLabel
+            let label = _stack.arrangedSubviews[i] as! VKLabel
             label.text = settings.securityUnicodeSymbol
         }
     }
@@ -313,9 +293,8 @@ public final class VKPinCodeView: UIView {
         
         for i in 0 ..< _code.count {
 
-            let index = normalizeIndex(index: i)
-            let label = _stack.arrangedSubviews[index] as! VKLabel
-            label.text = String(_code[index])
+            let label = _stack.arrangedSubviews[i] as! VKLabel
+            label.text = String(_code[i])
         }
     }
 }
