@@ -49,6 +49,14 @@ public final class VKPinCodeView: UIView {
         }
     }
     
+    public var keyboardAccessoryView: UIView? {
+        
+        didSet {
+            
+            _textField.inputAccessoryView = keyboardAccessoryView
+        }
+    }
+    
     /// Fires when PIN is completely entered. Provides actual code and view for managing error state.
     public var onComplete: ((_ code: String, _ pinView: VKPinCodeView) -> Void)?
     
@@ -112,6 +120,7 @@ public final class VKPinCodeView: UIView {
 
     /// Use this method to reset the code
     public func resetCode() {
+        
         _code = ""
         _textField.text = nil
         _stack.arrangedSubviews.forEach { ($0 as! VKLabel).text = nil }
